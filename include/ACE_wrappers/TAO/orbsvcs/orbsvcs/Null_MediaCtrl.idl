@@ -1,0 +1,5 @@
+// $Id: Null_MediaCtrl.idl 14 2007-02-01 15:49:12Z mitza $
+
+interface Null_MediaCtrl
+{
+};

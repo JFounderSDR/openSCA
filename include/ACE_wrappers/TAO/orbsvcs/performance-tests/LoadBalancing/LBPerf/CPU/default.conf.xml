@@ -1,0 +1,8 @@
+<?xml version='1.0'?>
+<!-- Converted from ./performance-tests/Latency/Single_Threaded/default.conf by svcconf-convert.pl -->
+<ACE_Svc_Conf>
+ <!--  $Id: default.conf.xml 14 2007-02-01 15:49:12Z mitza $ -->
+ <!--  -->
+ <!--  The file is empty, forcing the ORB to use its default configuration. -->
+ <!--  -->
+</ACE_Svc_Conf>

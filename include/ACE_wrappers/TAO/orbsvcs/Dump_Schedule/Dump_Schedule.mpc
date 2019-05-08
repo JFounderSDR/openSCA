@@ -1,0 +1,6 @@
+// -*- MPC -*-
+// $Id: Dump_Schedule.mpc 1861 2011-08-31 16:18:08Z mesnierp $
+
+project : orbsvcsexe, install, rtsched, naming, svc_utils, iortable, portableserver {
+  exename  = tao_dump_schedule
+}

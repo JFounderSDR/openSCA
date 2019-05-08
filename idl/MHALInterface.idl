@@ -1,0 +1,77 @@
+/***************************************************************************//**
+* @file     MhalDevice.idl 
+* @author   open Team
+* @version  9
+* @date     2017-03-10
+* @brief
+* @Remark : <Description>
+* @verbatim
+* ==============================================================================
+* <Date>     | <Version> | <Author>       | <Description>
+* ==============================================================================
+*  2015-05-23 | 1       | open Team       | Create file
+* ==============================================================================
+* @endverbatim
+* ******************************************************************************
+* <h2><center>&copy; Copyright(c)2015-2025 JFounder Info Tech Co.,Ltd</center></h2>
+* All rights reserved. The right to copy, distribute, modify or otherwise make use
+* of this software may be licensed only pursuant to the terms of an applicable
+* JFounder license agreement. Company website: www.onetek.net
+*//****************************************************************************/
+ 
+#ifndef __MHALDEVICE_DEFINED 
+#define __MHALDEVICE_DEFINED 
+ 
+#ifndef __JTRSCORBATYPES_DEFINED 
+#include "JtrsCorbaTypes.idl" 
+#endif 
+#ifndef __PACKET_DEFINED 
+#include "Packet.idl" 
+#endif 
+ 
+module MHAL { 
+   
+  interface MHALPacketConsumer : Packet::PayloadStatus { 
+ 
+    void pushPacket ( 
+      in unsigned short logicalDest, 
+      in JTRS::OctetSequence payload 
+    ); 
+ 
+  }; 
+ 
+  interface PF_MHALPacketConsumer : MHALPacketConsumer { 
+ 
+    typedef JTRS::ExtEnum MHALPhysicalDestination; 
+     
+    // Known MHAL Physical Destination Types, will add types as needed 
+    const MHALPhysicalDestination  MHALPhysicalDestination_NONE = 0; 
+    const MHALPhysicalDestination  PHYSICAL_DESTINATION_GPP = 0x11; 
+    const MHALPhysicalDestination  PHYSICAL_DESTINATION_CHANNEL1_DSP = 0x21; 
+    //const MHALPhysicalDestination  PHYSICAL_DESTINATION_CHANNEL1_FPGA = 0x2a; 
+    const MHALPhysicalDestination  PHYSICAL_DESTINATION_CHANNEL1_FPGA = 0x20; 
+    const MHALPhysicalDestination  PHYSICAL_DESTINATION_CHANNEL2_DSP = 0x31; 
+    const MHALPhysicalDestination  PHYSICAL_DESTINATION_CHANNEL2_FPGA = 0x3a; 
+    
+    
+     
+    void addTxRoute ( 
+          in unsigned short logicalDest, 
+      in MHAL::PF_MHALPacketConsumer::MHALPhysicalDestination physicalDest 
+    ); 
+     
+  };     
+ 
+  interface WF_MHALPacketConsumer : MHALPacketConsumer { 
+     
+    typedef sequence<unsigned short> RxRouteSequence; 
+ 
+    MHAL::WF_MHALPacketConsumer::RxRouteSequence getRxRoutes (); 
+       
+  };     
+ 
+}; 
+ 
+#endif 
+ 
+ 

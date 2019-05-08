@@ -1,0 +1,10 @@
+// $Id: Fault_Detector.mpc 1861 2011-08-31 16:18:08Z mesnierp $
+project : taoserver, orbsvcsexe, install, fault_tolerance {
+  exename  = tao_fault_detector
+  Source_Files {
+    Fault_Detector_i.cpp
+    Fault_Detector_Main.cpp
+    FT_FaultDetectorFactory_i.cpp
+  }
+}
+

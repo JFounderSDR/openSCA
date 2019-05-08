@@ -1,0 +1,72 @@
+/***************************************************************************//**
+* @file     JTRSCorbaTypes.idl
+* @author   open Team
+* @version  9
+* @date     2017-03-10
+* @brief
+* @Remark : <Description>
+* @verbatim
+* ==============================================================================
+* <Date>     | <Version> | <Author>       | <Description>
+* ==============================================================================
+*  2015-05-23 | 1       | open Team       | Create file
+* ==============================================================================
+* @endverbatim
+* ******************************************************************************
+* <h2><center>&copy; Copyright(c)2015-2025 JFounder Info Tech Co.,Ltd</center></h2>
+* All rights reserved. The right to copy, distribute, modify or otherwise make use
+* of this software may be licensed only pursuant to the terms of an applicable
+* JFounder license agreement. Company website: www.onetek.net
+*//****************************************************************************/
+ 
+#ifndef __JTRSCORBATYPES_DEFINED 
+#define __JTRSCORBATYPES_DEFINED 
+ 
+#include "CF.idl" 
+ 
+#ifndef __PORTTYPES_DEFINED 
+#include "PortTypes.idl" 
+#endif 
+ 
+module JTRS 
+{ 
+       // 
+       // ExtEnum - Extensible 'enum' 
+       //  Used instead of intrinsic enum unless the definition is complete. 
+       //  Enumeration values should be maintained as constant values by the 
+       //  owning service or its extensions 
+       //  (see: Vocoder.idl for example use). 
+  typedef  unsigned short         ExtEnum; 
+  typedef  sequence<ExtEnum>      ExtEnumSequence; 
+ 
+  // 
+  // Unbounded intrinsic sequence types 
+  // The 'floating point'types are not defined here as they will be  
+  // avoided on resource restricted platforms and the use of floating 
+  // point will be limited in the JTRS APIs. 
+  // 
+  typedef CF::OctetSequence     OctetSequence; 
+  typedef CF::StringSequence     StringSequence; 
+ 
+  typedef PortTypes::BooleanSequence   BooleanSequence; 
+  typedef PortTypes::CharSequence    CharSequence; 
+  typedef PortTypes::LongLongSequence   LongLongSequence; 
+  typedef PortTypes::LongSequence    LongSequence; 
+  typedef PortTypes::ShortSequence   ShortSequence; 
+  typedef PortTypes::UlongLongSequence  UlongLongSequence; 
+  typedef PortTypes::UlongSequence   UlongSequence; 
+  typedef PortTypes::UshortSequence   UshortSequence; 
+ 
+   
+// Bad Method Parameter 
+  exception InvalidParameter  
+  { 
+  }; 
+ 
+  // Behaviour is not supported (on this platform - others might!) 
+  exception Unsupported  
+  { 
+  }; 
+ 
+}; 
+#endif // __JTRSCORBATYPES_DEFINED

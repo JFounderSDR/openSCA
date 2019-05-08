@@ -1,0 +1,21 @@
+// -*- IDL -*-
+
+/**
+ * @file InvalidSlot.pidl
+ *
+ * $Id: InvalidSlot.pidl 1861 2011-08-31 16:18:08Z mesnierp $
+ *
+ * @brief Pre-compiled InvalidSlot
+ */
+
+#ifndef _INVALID_SLOT_PIDL_
+#define _INVALID_SLOT_PIDL_
+
+module PortableInterceptor {
+
+  typeprefix PortableInterceptor "omg.org";
+
+  exception InvalidSlot {};
+};
+
+#endif  /* _INVALID_SLOT_PIDL_ */

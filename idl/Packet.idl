@@ -1,0 +1,94 @@
+/***************************************************************************//**
+* @file     Pakcet.idl
+* @author   open Team
+* @version  9
+* @date     2017-03-10
+* @brief
+* @Remark : <Description>
+* @verbatim
+* ==============================================================================
+* <Date>     | <Version> | <Author>       | <Description>
+* ==============================================================================
+*  2015-05-23 | 1       | open Team       | Create file
+* ==============================================================================
+* @endverbatim
+* ******************************************************************************
+* <h2><center>&copy; Copyright(c)2015-2025 JFounder Info Tech Co.,Ltd</center></h2>
+* All rights reserved. The right to copy, distribute, modify or otherwise make use
+* of this software may be licensed only pursuant to the terms of an applicable
+* JFounder license agreement. Company website: www.onetek.net
+*//****************************************************************************/
+
+#ifndef ___PACKET_DEFINED
+#define __PACKET_DEFINED
+
+#ifndef __JTRSCORBATYPES_DEFINED
+#include "JtrsCorbaTypes.idl"
+#endif
+
+module Packet
+{
+	//
+	// Base Packet Service Set
+	//
+	
+	// Payload Status Query
+	interface PayloadStatus
+	{
+		unsigned long getMaxPayloadSize();
+		unsigned long getMinPayloadSize();
+		unsigned long getDesiredPayloadSize();
+		unsigned long getMinOverrideTimeout();
+	};
+
+	// Payload Modifiers
+	interface PayloadControl
+	{
+		void setMaxPayloadSize(in unsigned long maxPayloadSize)
+			raises(JTRS::InvalidParameter);
+		void setMinPayloadSize(in unsigned long minPayloadSize)
+			raises(JTRS::InvalidParameter);
+		void setDesiredPayloadSize(in unsigned long desiredPayloadSize)
+			raises(JTRS::InvalidParameter);
+		void setMinOverrideTimeout(in unsigned long minOverrideTimeout)
+			raises(JTRS::InvalidParameter);
+	};
+	//
+	// Streaming Services
+	//
+	typedef unsigned short Stream;
+	typedef octet	SeqNum;
+	struct StreamControlType
+	{
+		boolean endOfStream;	// Indicates whether it is end of stream or not.
+		Stream	streamed;	//Indentification number for the stream.
+		SeqNum	SequenceNumber;	//The sequence number for the stream.
+		boolean	purge;	//Indicates whether to purge the stream or not.
+	};
+
+	// Stream Exception
+	typedef JTRS::ExtEnum PushError;
+	const PushError PPKT_UNKNOWN	=	1;
+	const PushError PPKT_ERROR_BAD_SIZE	=	2;
+	const PushError PPKT_ERROR_STRAM_BLOCKED	=	3;
+
+	exception UnableToComplete
+	{
+		unsigned short payloadSent;	// Count of payload elements sent
+		PushError errorCode;
+	};
+
+	// Packet Stream 'Consumers' types
+	interface OctetStream : PayloadStatus
+	{
+		void pushPakcet( in StreamControlType control, in JTRS::OctetSequence payload)
+			raises(UnableToComplete);
+	};
+
+	interface UshortSteam : PayloadStatus
+	{
+		void pushPacket( in StreamControlType control, in JTRS::UshortSequence payload)
+			raises( UnableToComplete);
+	};
+};
+#endif	// _PACKET_DEFINED

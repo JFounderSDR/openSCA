@@ -1,0 +1,24 @@
+// -*- IDL -*-
+
+/**
+ *  @file   orb_types.pidl
+ *
+ * $Id: orb_types.pidl 1861 2011-08-31 16:18:08Z mesnierp $
+ */
+
+// Basic types
+
+#ifndef TAO_ORB_TYPES_IDL
+#define TAO_ORB_TYPES_IDL
+
+#pragma prefix "omg.org"
+
+module CORBA
+{
+  typedef string ORBid;
+  typedef unsigned long Flags;
+  typedef string Identifier;
+  typedef string RepositoryId;
+};
+
+#endif /* TAO_ORB_TYPES_IDL */

@@ -1,0 +1,14 @@
+// -*- IDL -*-
+// $Id: OctetSeq.pidl 1861 2011-08-31 16:18:08Z mesnierp $
+
+#ifndef TAO_CORBA_OCTET_SEQ_IDL
+#define TAO_CORBA_OCTET_SEQ_IDL
+
+#pragma prefix "omg.org"
+
+module CORBA
+{
+  typedef sequence<octet> OctetSeq;
+};
+
+#endif  /* TAO_CORBA_OCTET_SEQ_IDL */

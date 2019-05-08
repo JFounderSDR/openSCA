@@ -1,0 +1,38 @@
+/*!
+ * @mainpage JFounder openSCA.
+ * <div id="mainpage" style="width:95%;text-align:justify;text-justify:inter-word">
+ * <h1>Purpose</h1>
+ * openSCA是基于SCA和ROS2的开放软件定义框架，应用于软件无线电、机器人、自动驾驶、电力系统等复杂分布式场景。 
+ * <br/><br/>
+ *<h1>Main Features</h1>
+*<ul>
+* <li>support SCA4.1</li>
+* <li>support mutilpule CORBA middleware</li>
+* <li>support mutilpule DDS middleware</li>
+* <li>support ROS2.0</li>
+*</ul>
+ *
+ *<h1>System architecture</h1>
+ * A general view of the system architecture can be found below:<br/>
+ * <br><img src="openSCAArchitecture.png" width="800" align="center" style="padding:0px 20px 0px 0px"><br />
+ 
+ <h2>Nampsace</h2>
+*openSCA---SCA---DPP<br>
+	|-----ROS<br>
+	|-----RTE---TFM---ORBAI<br>
+	|------------|-----DDSAI<br>
+	|------------|-----UTILS<br>
+	|-----EAL<br>
+
+ <h3>Supported platforms</h3>
+* Linux [![Linux Build Status]<br/>
+* Windows [![Windows Build Status]
+
+ <h3>Installation Guide</h3>
+You can get either a binary distribution of *jFounder openSCA2.2.2* or compile the library yourself from source.
+ <h3>IInstallation from binaries</h3>
+The latest, up to date binary release of *jFounder openSCA2.2.2* can be obtained from the <a href='http://www.onetek.net'>company website</a>.
+*
+ */
+
+

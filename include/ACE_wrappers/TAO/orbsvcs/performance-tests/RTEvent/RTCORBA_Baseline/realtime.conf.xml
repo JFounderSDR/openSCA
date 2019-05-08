@@ -1,0 +1,6 @@
+<?xml version='1.0'?>
+<!-- Converted from ./orbsvcs/performance-tests/RTEvent/RTCORBA_Baseline/realtime.conf by svcconf-convert.pl -->
+<ACE_Svc_Conf>
+ <!--  $Id: realtime.conf.xml 14 2007-02-01 15:49:12Z mitza $ -->
+ <static id="RT_ORB_Loader" params="-ORBSchedPolicy SCHED_FIFO -ORBPriorityMapping direct"/>
+</ACE_Svc_Conf>

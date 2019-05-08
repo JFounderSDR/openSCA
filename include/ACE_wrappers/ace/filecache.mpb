@@ -1,0 +1,8 @@
+// -*- MPC -*-
+// $Id: filecache.mpb 14 2007-02-01 15:49:12Z mitza $
+
+feature(ace_filecache) {
+  Source_Files(ACE_COMPONENTS) {
+    Filecache.cpp
+  }
+}

@@ -1,0 +1,8 @@
+// -*- MPC -*-
+// $Id: codecs.mpb 14 2007-02-01 15:49:12Z mitza $
+
+feature(ace_codecs) {
+  Source_Files(ACE_COMPONENTS) {
+    Codecs.cpp
+  }
+}

@@ -1,0 +1,5 @@
+// $Id: Notify_Logging_Service.mpc 1861 2011-08-31 16:18:08Z mesnierp $
+
+project: namingexe, iortable, install, dsnotifylogadmin_serv, valuetype {
+  exename   = tao_tls_notify
+}

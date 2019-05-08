@@ -1,0 +1,7 @@
+// -*- MPC -*-
+// $Id: FTRT_Event_Service.mpc 935 2008-12-10 21:47:27Z mitza $
+
+project(FTRT_Event_Service): orbsvcsexe, utils, rtschedevent, ftrteventchannel, ftorbutils, install {
+  exename   = ftrt_eventservice
+  includes += $(TAO_ROOT)/orbsvcs/FtRtEvent/Utils
+}
