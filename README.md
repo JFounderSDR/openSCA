@@ -2,7 +2,7 @@
 本项目基于SCA2.2.2标准进行开发，完全符合SCA2.2.2标准，已在多个项目中投入使用。<br>
 
 ## 编译环境
-1. 操作系统：建议Ubuntu 16.04及以上版本；<br>
+1. 宿主机操作系统：建议Ubuntu 16.04及以上版本；<br>
 2. 交叉编译器：arm-xilinx-linux-gnueabi-gcc、arm-xilinx-linux-gnueabi-g++，<br>
 交叉编译器版本：4.9.2 (Sourcery CodeBench Lite 2015.05-17)；<br>
 3. cmake，版本不低于3.5；<br>
