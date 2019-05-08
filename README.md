@@ -2,7 +2,7 @@
 本项目基于SCA2.2.2标准进行开发，完全符合SCA2.2.2标准，已在多个项目中投入使用。<br>
 
 ## 编译环境
-1. 宿主机操作系统：建议Ubuntu 16.04及以上版本；<br>
+1. 宿主机操作系统：建议Ubuntu 16.04及以上版本  宿主机硬件版本：ARMv7_CortexA9；<br>
 2. 交叉编译器：arm-xilinx-linux-gnueabi-gcc、arm-xilinx-linux-gnueabi-g++，<br>
 交叉编译器版本：4.9.2 (Sourcery CodeBench Lite 2015.05-17)；<br>
 3. cmake，版本不低于3.5；<br>
@@ -26,10 +26,9 @@ sdrLibrary仓库地址为：(https://github.com/JFounderSDR/sdrLibrary.git)<br>
 3. 第三方库源码：仓库地址：(https://github.com/JFounderSDR/thirdparty)<br>
 4. 组件和逻辑设备开发实例代码，仓库地址：(https://github.com/JFounderSDR/examples)
 
-## 项目说明
-&emsp;&emsp;本项目基于SCA2.2.2标准开发，完全符合SCA2.2.2标准的规定。此开源版本供开发者参考研究之用，<br>
-实现了部分基础接口，如加载波形、卸载波形、设置与查询属性、启动与停止波形，且未对性能进行优化，<br>
-如加载波形时采用的是串行加载波形组件的方式，耗时较长。<br>
+## 项目描述
+&emsp;&emsp;本项目为开源版本，供开发者参考研究之用，实现了部分基础接口，如加载波形、卸载波形、<br>
+设置与查询属性、启动与停止波形，且未对性能进行优化，如加载波形时采用的是串行加载波形组件的方式，耗时较长。<br>
 
 &emsp;&emsp;介方商业版openSCA在实现完整SCA接口的基础上又做了增强型设计，且对性能进行了优化。
 
