@@ -18,8 +18,6 @@ sdrLibrary仓库地址为：(https://github.com/JFounderSDR/sdrLibrary.git)<br>
 jLab实验平台 1.0<br>
 ![load picture failed](https://github.com/JFounderSDR/openSCA/blob/master/jLab%E5%AE%9E%E9%AA%8C%E5%B9%B3%E5%8F%B0.png)<br>
 
-## 工具
-
 ## 依赖的开源项目
 1、ACE+TAO-2.0a<br>
 2、boost 1.69.0<br>
@@ -50,4 +48,15 @@ jLab实验平台 1.0<br>
 | 跨节点连接 | 不支持 | 支持 |
 | 事件服务 | 不支持 | 支持 |
 
-对于商业版openSCA，详情可发邮件至sdr@onetek.net进行咨询。
+如对商业版openSCA感兴趣，可发邮件至sdr@onetek.net进行咨询。
+
+## 工具支持
+介方同时提供SDR集成开发环境和平台监控软件jLab_Monitor。<br>
+
+SDR集成开发环境提供从建模到代码开发，再到生成平台包的一条龙服务，用户可直接将平台包放置到jLab实验平台运行。<br>
+![load picture failed](https://github.com/JFounderSDR/openSCA/blob/master/IDE.png)<br>
+
+jLab_Monitor为平台监控软件，提供波形的加载、卸载、属性配置与查询、启动与停止波形等功能。<br>
+![load_picture_failed](https://github.com/JFounderSDR/openSCA/blob/master/jMonitor.png)
+
+如对上述工具感兴趣，可发邮件至sdr@onetek.net进行咨询。
