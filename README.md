@@ -14,6 +14,12 @@ sdrLibrary仓库地址为：(https://github.com/JFounderSDR/sdrLibrary.git)<br>
 本项目使用CMake工具进行编译，需要配置项目目录下的configure.cmake文件，配置选项如下：<br>
 ![load picture failed](https://github.com/JFounderSDR/openSCA/blob/master/compile_config.png)<br>
 
+## 运行环境
+jLab实验平台 1.0<br>
+![load picture failed](https://github.com/JFounderSDR/openSCA/blob/master/jLab%E5%AE%9E%E9%AA%8C%E5%B9%B3%E5%8F%B0.png)<br>
+
+## 工具
+
 ## 依赖的开源项目
 1、ACE+TAO-2.0a<br>
 2、boost 1.69.0<br>
