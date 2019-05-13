@@ -19,8 +19,8 @@
 * JFounder license agreement. Company website: www.onetek.net
 *//****************************************************************************/
 
-#if !defined _LIBCF_UTILS_H_
-#define _LIBCF_UTILS_H_
+#if !defined __UTILS_H_
+#define __UTILS_H_
 
 #include <string.h>
 #include <vector>
@@ -300,11 +300,6 @@ hexConvertToDec(
     const char * hexStr, 
     unsigned long & result);
 
-char *
-getExectePath(
-    char * buf,
-    int count);
-
 std::string
 replaceFileNameofPath(
     const char* fullPath,
@@ -351,10 +346,5 @@ openProfileFile(
 bool
 closeProfileFile(
     CF::File_ptr file);
-
-char * 
-get_exe_path( 
-    char * buf, 
-    int count);
 
 #endif //_LIBCF_UTILS_H_
