@@ -8,11 +8,16 @@
 3. cmake，版本不低于3.5；<br>
 
 ## 编译设置
-编译本项目，首先需要从GitHub拉取sdrLibrary仓库，然后将sdrLibrary文件夹中的库拷贝到libs目录下，<br>
-sdrLibrary仓库地址为：(https://github.com/JFounderSDR/sdrLibrary.git)<br>
-
 本项目使用CMake工具进行编译，需要配置项目目录下的configure.cmake文件，配置选项如下：<br>
 ![load picture failed](https://github.com/JFounderSDR/openSCA/blob/master/compile_config.png)<br>
+
+## 编译步骤
+1. 编译本项目，首先需要从GitHub拉取sdrLibrary仓库，然后将sdrLibrary文件夹中的库拷贝到libs目录下，<br>
+sdrLibrary仓库地址为：(https://github.com/JFounderSDR/sdrLibrary.git)<br>
+2. 拉取example仓库，将拉取到的example文件夹拷贝到OpenSCA目录下，<br>
+example仓库地址为：(https://github.com/JFounderSDR/examples)<br>
+3. 进入OpenSCA/build目录下，执行"cmake .."命令<br>
+4. 在build目录下，执行make，生成目标文件<br>
 
 ## 运行环境
 jLab实验平台 1.0<br>
