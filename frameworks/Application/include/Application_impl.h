@@ -30,6 +30,7 @@
 #include "SADParser.h"
 #include "SPDParser.h"
 #include "UsesConnectionInfo.h"
+#include "Boost_utils.h"
 
 /**
  * The Application class provides the interface for the control, configuration,

@@ -119,13 +119,15 @@ void
 StandardInterfaces_i::MHAL_WF_p::connectSlot(
     	const slotType & slot)
 {
-	m_signal.connect(slot);
+	m_connection = m_signal.connect(slot);
 }
 
 void
 StandardInterfaces_i::MHAL_WF_p::disconnectSlot()
 {
-	m_signal.disconnect_all_slots();
+	if (m_connection.connected()) {
+		m_signal.disconnect_all_slots();
+	}
 }
 
 /****************************************************************************

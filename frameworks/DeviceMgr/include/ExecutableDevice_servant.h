@@ -26,6 +26,7 @@
 #include "utils.h"
 #include "ConfigParser.h"
 #include "openscaSupport.h"
+#include "Boost_utils.h"
 
 /**
  * @brief This interface extends the LoadableDevice interface by adding 

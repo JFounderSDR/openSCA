@@ -105,9 +105,9 @@ throw (
 	char** argv = parseExecuteParams(argc, parameters, ulStackSize, ulPriority,
 	                  entryPoint, invalidProperties);
 
-	char path[1024];
-    std::string exePath = get_exe_path(path, 1024);
-  	ConfigParser configParser(exePath);
+    char openScaPath[64];
+    getConfigFilePathFromSHM(openScaPath, sizeof(openScaPath));
+  	ConfigParser configParser(openScaPath);
 	std::string fsRoot = configParser.getValueById(CONSTANT::FSROOT);
 	std::string fullOutPath = fsRoot + "/" + name;
 	DEBUG(7, ExecutableDevice_servant::execute, "fullOutPath:" << fullOutPath)

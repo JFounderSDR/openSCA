@@ -68,9 +68,9 @@ BaseDeployStrategy::BaseDeployStrategy(
 	m_fileMgr = fileMgr;
 	m_sadPar = sadPar;
 
-	char path[1024];
-    std::string exePath = get_exe_path(path, 1024);
-  	ConfigParser configParser(exePath);
+    char openScaPath[64];
+    getConfigFilePathFromSHM(openScaPath, sizeof(openScaPath));
+  	ConfigParser configParser(openScaPath);
 	m_sdrRoot = configParser.getValueById(CONSTANT::SDRROOT);
 	DEBUG(2, BaseDeployStrategy, "finish constructor.")
 }

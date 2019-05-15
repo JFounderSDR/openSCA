@@ -1410,10 +1410,10 @@ DomainManager_impl::createNamingStructure() {
 	orbWrap.bind_new_context_with_string(
 	    (openscaDomain + "/" + nodes).c_str());
 
-	char path[1024];
-    std::string exePath = get_exe_path(path, 1024);
-  	ConfigParser cp(exePath);
-	std::string dcdPath = cp.getValueById(CONSTANT::MAINDCDPATH);
+    char openScaPath[64];
+    getConfigFilePathFromSHM(openScaPath, sizeof(openScaPath));
+  	ConfigParser configParser(openScaPath);
+	std::string dcdPath = configParser.getValueById(CONSTANT::MAINDCDPATH);
 	int firstSlashPos = dcdPath.find_first_of("/");
 	std::string rearSubStr = dcdPath.substr(firstSlashPos + 1);
 	int secondSlashPos = rearSubStr.find_first_of("/");

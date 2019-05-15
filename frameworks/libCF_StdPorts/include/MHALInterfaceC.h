@@ -61,8 +61,8 @@
 #include /**/ "tao/Version.h"
 #include /**/ "tao/Versioned_Namespace.h"
 
-#include "../include/JTRSCorbaTypesC.h"
-#include "../include/PacketC.h"
+#include "JTRSCorbaTypesC.h"
+#include "PacketC.h"
 
 #if TAO_MAJOR_VERSION != 2 || TAO_MINOR_VERSION != 0 || TAO_BETA_VERSION != 4
 #error This file should be regenerated with TAO_IDL from version 2.0a

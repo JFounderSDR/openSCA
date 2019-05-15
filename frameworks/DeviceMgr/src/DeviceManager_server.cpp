@@ -170,9 +170,9 @@ int main(int argc, char* argv[])
 
 	//new ORB_Wrap include new orb and activate poamanager
 	openscaSupport::ORB_Wrap * orbWrap = new openscaSupport::ORB_Wrap();
-	char path[1024];
-    std::string exePath = get_exe_path(path, 1024);
-  	ConfigParser configParser(exePath);
+    char openScaPath[64];
+    getConfigFilePathFromSHM(openScaPath, sizeof(openScaPath));
+  	ConfigParser configParser(openScaPath);
 	std::string fsRoot = configParser.getValueById(CONSTANT::FSROOT);
 	std::string sdrRoot = configParser.getValueById(CONSTANT::SDRROOT);
 	std::string dcdPath = configParser.getValueById(CONSTANT::MAINDCDPATH);

@@ -1264,9 +1264,9 @@ ApplicationFactory_impl::loadAndExecuteComps(
 	DEBUG(3, ApplicationFactory_impl,
 	    "m_deployCompsInfo size:" << m_deployCompsInfo.size())
 
-	char path[1024];
-    std::string exePath = get_exe_path(path, 1024);
-  	ConfigParser configParser(exePath);
+    char openScaPath[64];
+    getConfigFilePathFromSHM(openScaPath, sizeof(openScaPath));
+  	ConfigParser configParser(openScaPath);
 	std::string fsroot = configParser.getValueById(CONSTANT::FSROOT);
 
 	for (unsigned int numComp = 0; numComp < m_deployCompsInfo.size();

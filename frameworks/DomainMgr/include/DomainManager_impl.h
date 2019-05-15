@@ -37,6 +37,7 @@
 #include "CFS.h"
 #include "ApplicationFactory_impl.h"
 #include "UsesConnectionInfo.h"
+#include "Boost_utils.h"
 
 class ServiceNode;
 class DeviceNode;

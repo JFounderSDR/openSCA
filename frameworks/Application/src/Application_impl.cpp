@@ -1050,9 +1050,9 @@ Application_impl::unloadAndDeallocatCaps(
 
 		//parser code file from spd.xml
 		//extract platform root form sad profile
-		char path[1024];
-    	std::string exePath = get_exe_path(path, 1024);
-  		ConfigParser configParser(exePath);
+	    char openScaPath[64];
+	    getConfigFilePathFromSHM(openScaPath, sizeof(openScaPath));
+	  	ConfigParser configParser(openScaPath);
 		std::string platformRoot = 
 			configParser.getValueById(CONSTANT::SDRROOT);
 		platformRoot.append("/");

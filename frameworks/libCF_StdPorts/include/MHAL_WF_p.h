@@ -103,6 +103,7 @@ class MHAL_WF_p
     CORBA::UShort logicalDest;
 
     signalDef m_signal;
+    boost::signals2::connection m_connection;
     CyclicBufferController* m_buffCtrl;
 
     //route sequence to store LD list

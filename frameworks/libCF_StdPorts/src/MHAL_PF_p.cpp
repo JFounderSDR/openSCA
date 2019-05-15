@@ -71,13 +71,15 @@ void
 StandardInterfaces_i::MHAL_PF_p::connectSlot(
     	const slotType & slot)
 {
-	m_signal.connect(slot);
+	m_connection = m_signal.connect(slot);
 }
 
 void
 StandardInterfaces_i::MHAL_PF_p::disconnectSlot()
 {
-	m_signal.disconnect_all_slots();
+	if (m_connection.connected()) {
+		m_signal.disconnect_all_slots();
+	}
 }
 
 //if input parameter is invalid, then return 0x00 as default velue

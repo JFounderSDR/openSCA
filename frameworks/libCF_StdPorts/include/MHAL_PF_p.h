@@ -47,6 +47,7 @@ class MHAL_PF_p
   friend class MHAL_PF::providesPort;
 
   public:
+
 	MHAL_PF_p(
 	    const char * portName);
 
@@ -103,6 +104,7 @@ class MHAL_PF_p
 	CORBA::UShort logicalDest;
 
 	signalDef m_signal;
+	boost::signals2::connection m_connection;
   	CyclicBufferController* m_buffCtrl;
 
 	//port properties for constriant

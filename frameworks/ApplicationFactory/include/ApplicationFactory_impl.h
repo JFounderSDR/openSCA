@@ -32,6 +32,7 @@
 #include "Application_impl.h"
 #include "utils.h"
 #include "UsesConnectionInfo.h"
+#include "Boost_utils.h"
 
 class AppFactoryEventHandler;
 

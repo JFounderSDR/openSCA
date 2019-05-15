@@ -28,6 +28,7 @@
 #include "debug.h"
 #include "parser_helpers.h"
 #include "port_helpers.h"
+#include "Boost_utils.h"
 
 class SADComponentPlacement;
 class SADComponentInstantiation;

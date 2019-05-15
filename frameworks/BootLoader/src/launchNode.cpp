@@ -325,9 +325,9 @@ LaunchNode::executeNamingService(
 	bzero(argv, argc);
 	changeExecParamsFormat(argv, execParams);
 
-	char path[1024];
-    std::string exePath = get_exe_path(path, 1024);
-  	ConfigParser configParser(exePath);
+    char openScaPath[64];
+    getConfigFilePathFromSHM(openScaPath, sizeof(openScaPath));
+  	ConfigParser configParser(openScaPath);
   	std::string namingServiceEndpoints = 
   		checkConfigInfo(&configParser, CONSTANT::NAMING_SERVICE_ENDPOINTS);
   	argv[argc - 3] = new char[strlen("-ORBListenEndpoints") + 1];
@@ -355,9 +355,9 @@ LaunchNode::executeNamingService(
 	// -ORB parameters should be neighbouring, otherwise will parse failed
 	changeParamsFormat(argv + 2, execParams, taskParams);
 
-	char path[1024];
-    std::string exePath = get_exe_path(path, 1024);
-  	ConfigParser configParser(exePath);
+    char openScaPath[64];
+    getConfigFilePathFromSHM(openScaPath, sizeof(openScaPath));
+  	ConfigParser configParser(openScaPath);
   	std::string namingServiceEndpoints = 
   	configParser.getValueById(CONSTANT::NAMING_SERVICE_ENDPOINTS);
   	argv[0] = new char[strlen("-ORBListenEndpoints") + 1];

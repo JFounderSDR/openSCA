@@ -28,6 +28,7 @@
 #include "SPDParser.h"
 #include "DMDParser.h"
 #include "ConfigParser.h"
+#include "Boost_utils.h"
 
 #ifdef __SDS_OS_VXWORKS__
 extern "C"
@@ -41,9 +42,9 @@ int main(int argc, char * argv[])
 #elif defined __SDS_OS_LINUX__
 	waitSemaphore(BOOST_CONSTANT::DOMAIN_MANAGER_CND);
 #endif
-	char path[1024];
-    std::string exePath = get_exe_path(path, 1024);
-  	ConfigParser configParser(exePath);
+    char openScaPath[64];
+    getConfigFilePathFromSHM(openScaPath, sizeof(openScaPath));
+  	ConfigParser configParser(openScaPath);
 
 	std::string sdrRoot = configParser.getValueById(CONSTANT::SDRROOT);
 	std::string dmdPath = configParser.getValueById(CONSTANT::DMDPATH);

@@ -63,9 +63,14 @@ int main(int argc, char* argv[])
 #endif
 {
 	DEBUG(5, Bootloader_main, "start...")
+	createSharedMemory(SCA_SHM, SCA_SHM_SIZE);
 	char path[1024];
-    std::string exePath = get_exe_path(path, 1024);
-  	ConfigParser configParser(exePath);
+    std::string exePath = getConfigFilePathByExecutablePath(path, 1024);
+    setConfigFilePathToSHM(exePath.c_str());
+
+    char openScaPath[64];
+    getConfigFilePathFromSHM(openScaPath, sizeof(openScaPath));
+  	ConfigParser configParser(openScaPath);
 	DEBUG(5, Bootloader_main, "Test BootLoader configParser end...")
 	std::string fsRoot = checkConfigInfo(&configParser, CONSTANT::FSROOT);
 	if ("" == fsRoot) {
@@ -83,14 +88,15 @@ int main(int argc, char* argv[])
 
 	DEBUG(5, Bootloader_main, "Test BootLoader second checkConfigInfo end...")
 
+	std::string snFile = const_cast<char*>(CONSTANT::SNFILE);
+	FileSystem_impl* fileSystemImpl = new FileSystem_impl(fsRoot.c_str());
+	std::string snPath = "/" + sdrRoot + "/" + snFile;
+	std::string snFilePath = fsRoot + snPath;
+
 #ifdef __SDS_OS_VXWORKS__
 	domainMgrMtx = semBCreate(SEM_Q_PRIORITY, SEM_EMPTY);
 	devMgrMtx = semBCreate(SEM_Q_PRIORITY, SEM_EMPTY);
 	sysMgrMtx = semBCreate(SEM_Q_PRIORITY, SEM_EMPTY);
-#elif defined __SDS_OS_LINUX__
-	///< create sca_shm shared memory leave with semaphores, 
-	/// locks, conditional variables.
-	createSharedMemory(SCA_SHM, SCA_SHM_SIZE);
 #endif
 
 	std::string namingServiceSPDPath =
@@ -101,6 +107,7 @@ int main(int argc, char* argv[])
 
 	std::string mainDCDPath = checkConfigInfo(
 								&configParser, CONSTANT::MAINDCDPATH);
+	DEBUG(7, Bootloader, "mainDCDPath: " << mainDCDPath)
 	if ("" == mainDCDPath) {
 		return -1;
 	}
@@ -109,8 +116,6 @@ int main(int argc, char* argv[])
 	if ("" == DMDPath) {
 		return -1;
 	}
-
-	FileSystem_impl* fileSystemImpl = new FileSystem_impl(fsRoot.c_str());
 
 	LaunchNode* launchNode = new LaunchNode(fsRoot, sdrRoot);
 	DEBUG(0, Bootloader_main, "BootLoader launch namingservice start...")

@@ -38,6 +38,7 @@
 #include "SPDParser.h"
 #include "FileSystem_impl.h"
 #include "utils.h"
+#include "Boost_utils.h"
 
 /**
  * @brief If os is vxworks, the LoadFileInfo used to description 

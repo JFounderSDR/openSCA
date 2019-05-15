@@ -31,6 +31,7 @@
 #include "CFS.h"
 #include "openscaSupport.h"
 #include "ApplicationFactorySupport.h"
+#include "Boost_utils.h"
 
 /**
  * @brief The class used to describe the strategies of deploying componets,
