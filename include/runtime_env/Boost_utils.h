@@ -30,6 +30,8 @@
 #include <boost/interprocess/sync/interprocess_condition.hpp>
 #include <boost/interprocess/sync/scoped_lock.hpp>
 #include <boost/interprocess/sync/interprocess_semaphore.hpp>
+#include <boost/interprocess/containers/string.hpp>
+#include <boost/interprocess/allocators/allocator.hpp>
 #include <boost/thread/thread.hpp>
 #include <boost/bind.hpp>
 #include <boost/smart_ptr.hpp>
@@ -50,127 +52,57 @@ extern const char * COMP_SYNCHRO_SEM;
 extern const char * CHECK_APP_STATUS;
 }
 
+char *
+getConfigFilePathByExecutablePath(
+	char * buf,
+	int count);
+
 /**
  * Create a shared memory with given name and size.
  */
-inline void
+void
 createSharedMemory(
     const std::string & shmName,
-    int size) {
-	boost::interprocess::managed_shared_memory
-	managed_shm(boost::interprocess::create_only, shmName.c_str(), size);
-}
+    int size);
 
 /**
  * Destruction a shared memory with given name.
  */
-inline void
+void
 removeSharedMemory(
-    const std::string & shmName) {
-	boost::interprocess::shared_memory_object::remove(shmName.c_str());
-}
+    const std::string & shmName);
 
 /**
  * Condition variable notice the state of all threads waiting on this to ready.
  */
-inline void
+void
 notifyConditionTrue(
-    const std::string & conditionName) {
-	try {
-
-		boost::interprocess::managed_shared_memory managed_shm(
-		    boost::interprocess::open_only, SCA_SHM);
-		boost::interprocess::interprocess_condition * cnd =
-		    managed_shm.find_or_construct<boost::interprocess::interprocess_condition>
-		    (conditionName.c_str())();
-
-		cnd->notify_all();
-
-	} catch (boost::interprocess::interprocess_exception & ex) {
-		DEBUG(7, waitConditionTrue,
-		      " notifyConditionTrue interprocess exception:" << ex.what())
-	}
-}
+    const std::string & conditionName);
 
 /**
  * Condition variable notice the state of all threads get lock.
  */
-inline void
+void
 waitConditionTrue(
-    const std::string & conditionName) {
-	try {
-
-		boost::interprocess::managed_shared_memory managed_shm(
-		    boost::interprocess::open_only, SCA_SHM);
-		boost::interprocess::interprocess_mutex * mtx =
-		    managed_shm.find_or_construct<boost::interprocess::interprocess_mutex>("mtx")();
-		boost::interprocess::interprocess_condition * cnd =
-		    managed_shm.find_or_construct<boost::interprocess::interprocess_condition>
-		    (conditionName.c_str())();
-		boost::interprocess::scoped_lock<boost::interprocess::interprocess_mutex> lock(
-		    *mtx );
-
-		cnd->notify_all();
-		cnd->wait(lock);
-
-	} catch (boost::interprocess::interprocess_exception & ex) {
-		DEBUG(7, waitConditionTrue,
-		      " waitConditionTrue interprocess exception:" << ex.what())
-	}
-}
+    const std::string & conditionName);
 
 /**
  * Process locking.
  */
-inline void
+void
 sds_lock(
-    const std::string & lockName) {
-	try {
+    const std::string & lockName);
 
-		boost::interprocess::managed_shared_memory managed_shm(
-		    boost::interprocess::open_only, SCA_SHM);
-		boost::interprocess::interprocess_mutex * mtx =
-		    managed_shm.find_or_construct<boost::interprocess::interprocess_mutex>
-		    (lockName.c_str())();
-		mtx->lock();
-
-	} catch (boost::interprocess::interprocess_exception & ex) {
-		DEBUG(7, sds_lock, " sds_lock interprocess exception:" << ex.what())
-	}
-}
-
-inline void
+void
 sds_lock_destroy(
-    const std::string & lockName) {
-	try {
-		boost::interprocess::managed_shared_memory managed_shm(
-		    boost::interprocess::open_only, SCA_SHM);
-		bool result = managed_shm.destroy<boost::interprocess::interprocess_mutex>
-		              (lockName.c_str());
-	} catch (boost::interprocess::interprocess_exception & ex) {
-		DEBUG(7, sds_lock, " sds_lock_destroy interprocess exception:" << ex.what())
-	}
-}
+    const std::string & lockName);
 
 /**
  * Process unlocking.
  */
-inline void
+void
 sds_unlock(
-    const std::string & lockName) {
-	try {
-
-		boost::interprocess::managed_shared_memory managed_shm(
-		    boost::interprocess::open_only, SCA_SHM);
-		boost::interprocess::interprocess_mutex * mtx =
-		    managed_shm.find_or_construct<boost::interprocess::interprocess_mutex>
-		    (lockName.c_str())();
-		mtx->unlock();
-
-	} catch (boost::interprocess::interprocess_exception & ex) {
-		DEBUG(7, sds_unlock, " sds_unlock interprocess exception:" << ex.what())
-	}
-}
+    const std::string & lockName);
 
 /**
  * Decrements the interprocess_semaphore. If the interprocess_semaphore value is not greater than zero,
@@ -189,21 +121,14 @@ waitSemaphore(
 		    (semName.c_str())(initVal);
 		sem->wait();
 	} catch (boost::interprocess::interprocess_exception & ex) {
-		DEBUG(7, waitSemaphore, " waitSemaphore interprocess exception:" << ex.what())
+		DEBUG(0, [Boost_utils::waitSemaphore],
+			" waitSemaphore interprocess exception:" << ex.what())
 	}
 }
 
-inline void destroySemaphore(const std::string &semName) {
-	try {
-		boost::interprocess::managed_shared_memory managed_shm(
-		    boost::interprocess::open_only, SCA_SHM);
-		bool result = managed_shm.destroy<boost::interprocess::interprocess_semaphore>
-		              (semName.c_str());
-	} catch (boost::interprocess::interprocess_exception & ex) {
-		DEBUG(7, waitSemaphore, " destroySemaphore interprocess exception:" <<
-		      ex.what())
-	}
-}
+void
+destroySemaphore(
+	const std::string & semName);
 
 /**
  * Increments the interprocess_semaphore count. If there are processes/threads blocked waiting
@@ -222,8 +147,18 @@ postSemaphore(
 		    (semName.c_str())(initVal);
 		sem->post();
 	} catch (boost::interprocess::interprocess_exception & ex) {
-		DEBUG(7, postSemaphore, " postSemaphore interprocess exception:" << ex.what())
+		DEBUG(0, [Boost_utils::postSemaphore],
+			" postSemaphore interprocess exception:" << ex.what())
 	}
 }
+
+void
+setConfigFilePathToSHM(
+    const char * path);
+
+void
+getConfigFilePathFromSHM(
+	char * path,
+	int size);
 
 #endif //_BOOST_UTILS_H_

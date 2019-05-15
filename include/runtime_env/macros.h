@@ -1,5 +1,5 @@
 /***************************************************************************//**
-* @file     libcf_macros.h
+* @file     macros.h
 * @author   open Team
 * @version  9
 * @date     2017-03-16
@@ -19,8 +19,8 @@
 * JFounder license agreement. Company website: www.onetek.net
 *//****************************************************************************/
 
-#ifndef	__LIBCF_MACROS_H__
-#define	__LIBCF_MACROS_H__
+#ifndef	__MACROS_H__
+#define	__MACROS_H__
 
 #ifdef __VXWORKS__
 /** indicate that use specialized vxworks api */
