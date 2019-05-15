@@ -132,21 +132,27 @@ SET(RUNTIME_LIB_DIR "${PROJECT_SOURCE_DIR}/libs/runtime_env")
 SET(ACE_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/include/ACE_wrappers")
 
 #link libraries one by one
-link_libraries("${ACE_LIB_DIR}/libTAO_CosNaming_Serv.so" 
+link_libraries("${ACE_LIB_DIR}/libTAO_PI.so"
+       "${ACE_LIB_DIR}/libACE.so"
+       "${ACE_LIB_DIR}/libTAO.so"
+       "${ACE_LIB_DIR}/libTAO_AnyTypeCode.so"
+       "${ACE_LIB_DIR}/libKokyu.so"
+       "${ACE_LIB_DIR}/libTAO_CodecFactory.so"
+       "${ACE_LIB_DIR}/libTAO_Codeset.so"
+       "${ACE_LIB_DIR}/libTAO_CosEvent.so"
+       "${ACE_LIB_DIR}/libTAO_CosEvent_Skel.so"
+       "${ACE_LIB_DIR}/libTAO_CosEvent_Serv.so"
+       "${ACE_LIB_DIR}/libTAO_CosNaming_Serv.so" 
        "${ACE_LIB_DIR}/libTAO_CosNaming.so" 
+       "${ACE_LIB_DIR}/libTAO_CosNaming_Skel.so"
+       "${ACE_LIB_DIR}/libTAO_DynamicInterface.so"
+       "${ACE_LIB_DIR}/libTAO_IFR_Client.so"
+       "${ACE_LIB_DIR}/libTAO_ImR_Client.so"
+       "${ACE_LIB_DIR}/libTAO_IORTable.so"
        "${ACE_LIB_DIR}/libTAO_Svc_Utils.so"
        "${ACE_LIB_DIR}/libTAO_Messaging.so"
        "${ACE_LIB_DIR}/libTAO_Valuetype.so"
        "${ACE_LIB_DIR}/libTAO_PortableServer.so"
-       "${ACE_LIB_DIR}/libTAO_AnyTypeCode.so"
-       "${ACE_LIB_DIR}/libTAO.so"
-       "${ACE_LIB_DIR}/libACE.so"
-       "${ACE_LIB_DIR}/libTAO_ImR_Client.so"
-       "${ACE_LIB_DIR}/libTAO_CodecFactory.so"
-       "${ACE_LIB_DIR}/libTAO_CosEvent.so"
-       "${ACE_LIB_DIR}/libTAO_CosEvent_Skel.so"
-       "${ACE_LIB_DIR}/libTAO_CosEvent_Serv.so"
-       "${ACE_LIB_DIR}/libTAO_IORTable.so"
        "${TINY1XML_LIB_DIR}/libtiny1xml.so"
        "${RUNTIME_LIB_DIR}/liborb_abstraction.so"
        "${RUNTIME_LIB_DIR}/librte_utils.so"
@@ -171,8 +177,6 @@ INCLUDE_DIRECTORIES("${PROJECT_INCULDE_DIR}/tiny1xml"
 # Compile library.
 ###############################################################################
 include (./BuildOption.cmake)
-
-#add_subdirectory(runtime_env)
 
 if (FRAMEWORKS_BUILD)
 	add_subdirectory(frameworks)
