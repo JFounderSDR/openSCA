@@ -23,7 +23,7 @@
 #include "tinyxml.h"
 
 #include "../include/WRSParser.h"
-#include "debug.h"
+#include "../include/debug.h"
 
 WRSParser::WRSParser() {
 

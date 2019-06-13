@@ -21,7 +21,7 @@
 
 #include <iostream>
 #include "../include/MHAL_PF_p.h"
-#include "openscaSupport.h"
+#include "../include/debug.h"
 
 StandardInterfaces_i::MHAL_PF_p::MHAL_PF_p(
     const char * _name) :

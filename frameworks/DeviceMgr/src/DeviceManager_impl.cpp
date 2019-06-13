@@ -27,12 +27,11 @@
 #include <taskLib.h>
 #endif
 
-#include "utils.h"
-#include "../include/DeviceManager_impl.h"
 #include "DCDParser.h"
 #include "SCDParser.h"
 #include "FileSystem_impl.h"
 #include "CFS.h"
+#include "../include/DeviceManager_impl.h"
 
 /**
  * The DeviceManager interface is used to manage a set of logical devices and

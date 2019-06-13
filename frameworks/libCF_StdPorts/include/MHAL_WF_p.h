@@ -34,6 +34,7 @@
 
 #include "MHALInterfaceS.h"
 #include "CyclicBufferController.h"
+#include "openscaSupport.h"
 
 namespace MHAL_WF {
 class providesPort;

@@ -33,6 +33,7 @@
 #include <boost/signals2/signal.hpp>
 
 #include "MHALInterfaceS.h"
+#include "openscaSupport.h"
 #include "CyclicBufferController.h"
 
 namespace MHAL_PF {

@@ -28,6 +28,7 @@
 
 #include <string>
 #include "RealDoubleS.h"
+#include "openscaSupport.h"
 
 namespace RealDouble {
 class ProvidesPort;

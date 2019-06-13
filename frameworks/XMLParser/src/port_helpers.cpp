@@ -20,6 +20,7 @@
 *//****************************************************************************/
 
 #include "../include/port_helpers.h"
+#include "../include/debug.h"
 
 /**
 * this class is designed to parse connection element for SCD and SAD.

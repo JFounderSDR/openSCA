@@ -16,4 +16,5 @@ aux_source_directory (./src SRC)
 
 add_executable(${PROJECT_NAME} ${SRC})
 
-target_link_libraries(${PROJECT_NAME} CF_Utils File FileSystem FileManager XMLParser CF_StdPorts)
+target_link_libraries(${PROJECT_NAME} CF_Interface CF_Utils File FileSystem FileManager XMLParser CF_StdPorts)
+

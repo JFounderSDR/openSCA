@@ -21,8 +21,7 @@
 
 #include <iostream>
 #include "../include/RealDouble_u.h"
-#include "openscaSupport.h"
-#include "debug.h"
+#include "../include/debug.h"
 
 StandardInterfaces_i::RealDouble_u::RealDouble_u(
     const char * _portName):

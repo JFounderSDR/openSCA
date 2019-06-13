@@ -26,6 +26,7 @@
 #include <vector>
 
 #include "MHALInterfaceS.h"
+#include "openscaSupport.h"
 #include "CFS.h"
 
 // Forward declaration

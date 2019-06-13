@@ -25,7 +25,7 @@
 #endif
 
 #include "../include/RealOctet_p.h"
-#include "openscaSupport.h"
+#include "../include/debug.h"
 
 StandardInterfaces_i::RealOctet_p::RealOctet_p(
     const char * _name) :

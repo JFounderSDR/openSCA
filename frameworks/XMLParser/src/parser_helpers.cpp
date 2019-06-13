@@ -20,6 +20,7 @@
 *//****************************************************************************/
 
 #include "../include/parser_helpers.h"
+#include "../include/debug.h"
 
 /**
  * this class is designed to parse assembly component consisted of SAD and SCD. it

@@ -8,16 +8,31 @@
 3. cmake，版本不低于3.5；<br>
 
 ## 编译设置
-本项目使用CMake工具进行编译，需要配置项目目录下的configure.cmake文件，配置选项如下：<br>
+本项目使用CMake工具进行编译，需要先配置交叉编译器的环境变量。
+
+1. 安装Xilinx_SDK
+2. 在Xilinx-2015.4/SDK/2015.4/settings64.sh脚本中，添加如下内容：
+
+export CC=arm-xilinx-linux-gnueabi-gcc
+export CXX=arm-xilinx-linux-gnueabi-g++
+
+3. 编译前请先执行如下命令：
+
+source ~/Xilinx-2015.4/SDK/2015.4/settings64.sh、
+
+配置目录下的configure.cmake文件，配置选项如下：<br>
 ![load picture failed](https://github.com/JFounderSDR/openSCA/blob/master/compile_config.png)<br>
 
 ## 编译步骤
-1. 编译本项目，首先需要从GitHub拉取sdrLibrary仓库，然后将sdrLibrary文件夹中的库拷贝到libs目录下，<br>
+1. 编译本项目，首先从GitHub拉取sdrLibrary仓库，新建openSCA/libs目录，然后将sdrLibrary中ace_tao、boost、<br>
+runtime_env、tiny1xml四个文件夹直接拷贝到openSCA/libs目录下。<br>
 sdrLibrary仓库地址为：(https://github.com/JFounderSDR/sdrLibrary.git)<br>
-2. 拉取example仓库，将拉取到的example文件夹拷贝到OpenSCA目录下，<br>
-example仓库地址为：(https://github.com/JFounderSDR/examples)<br>
-3. 进入OpenSCA/build目录下，执行"cmake .."命令<br>
-4. 在build目录下，执行make，生成目标文件<br>
+2. 拉取examples仓库，将拉取到的examples文件夹直接拷贝到OpenSCA目录下，<br>
+examples仓库地址为：(https://github.com/JFounderSDR/examples.git)<br>
+3. 拉取testsuite仓库，将拉取到的testsuite文件夹直接拷贝到OpenSCA目录下，<br>
+testsuite仓库地址为：(https://github.com/JFounderSDR/testsuite.git)<br>
+4. 新建openSCA/build目录，在此目录下执行"cmake ../"命令<br>
+5. 步骤3执行成功后，继续执行"make"命令，生成目标文件<br>
 
 ## 运行环境
 jLab实验平台 1.0<br>
@@ -34,6 +49,7 @@ jLab实验平台 1.0<br>
 2. 说明文档，仓库地址：(https://github.com/JFounderSDR/documents)<br>
 3. 第三方库源码：仓库地址：(https://github.com/JFounderSDR/thirdparty)<br>
 4. 组件和逻辑设备开发实例代码，仓库地址：(https://github.com/JFounderSDR/examples)
+5. 测试实例代码，仓库地址：(https://github.com/JFounderSDR/testsuite)
 
 ## 项目描述
 &emsp;&emsp;本项目为开源版本，供开发者学习、研究之用，实现了部分基础接口，如加载波形、卸载波形、<br>

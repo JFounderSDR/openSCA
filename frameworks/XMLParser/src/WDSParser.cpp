@@ -21,7 +21,7 @@
 #include "tinyxml.h"
 
 #include "../include/WDSParser.h"
-#include "debug.h"
+#include "../include/debug.h"
 
 WDSParser::WDSParser(
     const char * fileName) {

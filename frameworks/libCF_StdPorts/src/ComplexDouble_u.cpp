@@ -21,8 +21,7 @@
 
 #include <iostream>
 #include "../include/ComplexDouble_u.h"
-#include "openscaSupport.h"
-#include "debug.h"
+#include "../include/debug.h"
 
 StandardInterfaces_i::ComplexDouble_u::ComplexDouble_u(
     const char * _portName):

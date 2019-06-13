@@ -20,8 +20,7 @@
 *//****************************************************************************/
 
 #include <iostream>
-#include "openscaSupport.h"
-#include "debug.h"
+#include "../include/debug.h"
 #include "../include/Resource_u.h"
 
 StandardInterfaces_i::Resource_u::Resource_u(

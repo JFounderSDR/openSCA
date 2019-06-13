@@ -18,7 +18,7 @@
 * of this software may be licensed only pursuant to the terms of an applicable
 * JFounder license agreement. Company website: www.onetek.net
 *//****************************************************************************/
-#include "debug.h"
+#include "../include/debug.h"
 #include "../include/SCDParser.h"
 
 SCDParser::SCDParser() {

@@ -12,10 +12,8 @@
 
 #include <iostream>
 
-#include "openscaSupport.h"
-
 #include "../include/MHAL_PF_u.h"
-#include "debug.h"
+#include "../include/debug.h"
 
 StandardInterfaces_i::MHAL_PF_u::MHAL_PF_u(const char* _portName) 
 {
@@ -123,8 +121,7 @@ void MHAL_PF::UsesPort::connectPort(CORBA::Object_ptr connection, const char* co
 {
 	MHAL::WF_MHALPacketConsumer_ptr p = MHAL::WF_MHALPacketConsumer::_narrow(connection);
 	
-	DEBUG(5,MHAL_PF::UsesPort,"In connectPort" << "connectionID is "\
-			<< connectionID)
+	DEBUG(5,MHAL_PF::UsesPort,"In connectPort connectionID is connectionID")
 	
     if (CORBA::is_nil(p)) 
     {

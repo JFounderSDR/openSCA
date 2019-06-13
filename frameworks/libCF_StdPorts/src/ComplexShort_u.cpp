@@ -21,8 +21,7 @@
 
 #include <iostream>
 #include "../include/ComplexShort_u.h"
-#include "openscaSupport.h"
-#include "debug.h"
+#include "../include/debug.h"
 
 StandardInterfaces_i::ComplexShort_u::ComplexShort_u(
     const char * _portName):

@@ -32,13 +32,13 @@
 #include <istream>
 
 #include "../include/LaunchNode.h"
+#include "../include/debug.h"
 #include "utils.h"
 #include "SPDParser.h"
 #include "DCDParser.h"
 #include "FileSystem_impl.h"
 #include "CFS.h"
 #include "ConfigParser.h"
-#include "debug.h"
 #include "Boost_utils.h"
 
 #define SEND_ID			1800
@@ -64,8 +64,7 @@ int main(int argc, char* argv[])
 {
 	DEBUG(5, Bootloader_main, "start...")
 	createSharedMemory(SCA_SHM, SCA_SHM_SIZE);
-	char path[1024];
-    std::string exePath = getConfigFilePathByExecutablePath(path, 1024);
+    std::string exePath = getConfigFilePathByExecutablePath();
     setConfigFilePathToSHM(exePath.c_str());
 
     char openScaPath[64];

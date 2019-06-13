@@ -15,3 +15,5 @@ project(CF_Utils)
 aux_source_directory (./src SRC)
 
 add_library (${PROJECT_NAME} SHARED ${SRC})
+
+target_link_libraries(${PROJECT_NAME} CF_Interface)

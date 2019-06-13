@@ -21,7 +21,7 @@
 
 #include <iostream>
 #include "../include/RealLong_p.h"
-#include "openscaSupport.h"
+#include "../include/debug.h"
 
 StandardInterfaces_i::RealLong_p::RealLong_p(
     const char * _portName):

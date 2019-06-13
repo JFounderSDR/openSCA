@@ -28,6 +28,7 @@
 
 #include <string>
 #include "RealLongS.h"
+#include "openscaSupport.h"
 
 namespace RealLong {
 class ProvidesPort;

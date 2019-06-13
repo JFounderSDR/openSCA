@@ -155,15 +155,12 @@ link_libraries("${ACE_LIB_DIR}/libTAO_PI.so"
        "${ACE_LIB_DIR}/libTAO_PortableServer.so"
        "${TINY1XML_LIB_DIR}/libtiny1xml.so"
        "${RUNTIME_LIB_DIR}/liborb_abstraction.so"
-       "${RUNTIME_LIB_DIR}/librte_utils.so"
-       "${RUNTIME_LIB_DIR}/libCF_Interface.so")
+       "${RUNTIME_LIB_DIR}/librte_utils.so")
 
 link_directories("${PROJECT_SOURCE_DIR}/libs/boost")
 
 #link include directories
-INCLUDE_DIRECTORIES("${PROJECT_INCULDE_DIR}/tiny1xml"
-		              "${PROJECT_INCULDE_DIR}"
-                  "${PROJECT_INCULDE_DIR}/runtime_env"
+INCLUDE_DIRECTORIES("${PROJECT_INCULDE_DIR}"
                   "${ACE_INCLUDE_DIR}" 
                   "${ACE_INCLUDE_DIR}/ace"
                   "${ACE_INCLUDE_DIR}/TAO"

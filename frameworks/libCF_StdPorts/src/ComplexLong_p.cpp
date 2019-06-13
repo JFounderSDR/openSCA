@@ -21,7 +21,7 @@
 
 #include <iostream>
 #include "../include/ComplexLong_p.h"
-#include "openscaSupport.h"
+#include "../include/debug.h"
 
 StandardInterfaces_i::ComplexLong_p::ComplexLong_p(
     const char * _portName):

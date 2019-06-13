@@ -19,7 +19,7 @@
 * JFounder license agreement. Company website: www.onetek.net
 *//****************************************************************************/
 
-#include "debug.h"
+#include "../include/debug.h"
 #include "../include/UsesConnectionInfo.h"
 
 UsesConnectionInfo::UsesConnectionInfo(

@@ -28,7 +28,7 @@
 #include "orbsvcs/CosEvent/CEC_Default_Factory.h"
 
 #include "../include/Naming_Service.h"
-#include "debug.h"
+#include "../include/debug.h"
 
 // Default Constructor.
 TAO_Naming_Service::TAO_Naming_Service(void)

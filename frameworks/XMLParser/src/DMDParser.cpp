@@ -22,7 +22,7 @@
 #include <fstream>
 #include <sstream>
 
-#include "debug.h"
+#include "../include/debug.h"
 #include "../include/DMDParser.h"
 
 /**

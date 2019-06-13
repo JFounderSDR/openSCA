@@ -38,6 +38,7 @@
 #include <cstring>
 
 #include "../include/LaunchNode.h"
+#include "../include/debug.h"
 #include "ConfigParser.h"
 
 /**

@@ -25,6 +25,7 @@
 #include <string>
 #include <vector>
 #include "PortTypesS.h"
+#include "openscaSupport.h"
 #include "CFS.h"
 
 // Forward declaration

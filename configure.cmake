@@ -25,4 +25,4 @@ set(PROJECT_SOURCE_DIR "${PROJECT_DIR}/openSCA")
 set(CMAKE_INSTALL_PREFIX "${PROJECT_DIR}/install")
 
 #cross compiler directory
-set(COMPILER_DIR /home/jf-yt/xilinx-2015.4)
+set(COMPILER_DIR "${PROJECT_DIR}/xilinx-2015.4")

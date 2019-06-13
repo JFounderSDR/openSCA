@@ -20,7 +20,6 @@
 *//****************************************************************************/
 
 #include "../include/AggregateDevice_impl.h"
-#include "debug.h"
 
 AggregateDevice_impl::AggregateDevice_impl() {
 	DEBUG(5, AggregateDevice_impl, "construction enter in ...")

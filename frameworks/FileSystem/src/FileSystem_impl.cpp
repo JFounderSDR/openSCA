@@ -28,7 +28,7 @@
 #include <vxworks.h>
 #endif
 
-#include "debug.h"
+#include "../include/debug.h"
 #include "utils.h"
 #include "../include/FileSystem_impl.h"
 

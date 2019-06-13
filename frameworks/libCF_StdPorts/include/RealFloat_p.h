@@ -28,6 +28,7 @@
 
 #include <string>
 #include "RealFloatS.h"
+#include "openscaSupport.h"
 
 namespace RealFloat {
 class ProvidesPort;

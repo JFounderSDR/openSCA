@@ -27,6 +27,7 @@
 
 #include "MHALInterfaceS.h"
 #include "CFS.h"
+#include "openscaSupport.h"
 
 // Forward declaration
 namespace MHAL_WF {

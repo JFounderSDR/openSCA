@@ -20,6 +20,7 @@
 *//****************************************************************************/
 
 #include "../include/DPDParser.h"
+#include "../include/debug.h"
 
 /**
  * class OPNESCA_PARSER_API DPDParser

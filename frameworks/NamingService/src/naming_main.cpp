@@ -26,7 +26,7 @@
 #include "tao/ImR_Client/ImR_Client.h"
 #include "orbsvcs/Shutdown_Utilities.h"
 
-#include "debug.h"
+#include "../include/debug.h"
 #include "../include/Naming_Service.h"
 #include "utils.h"
 #include "Boost_utils.h"

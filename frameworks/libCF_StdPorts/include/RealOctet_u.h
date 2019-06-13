@@ -29,6 +29,7 @@
 #include "PortTypesS.h"
 #include "CFS.h"
 #include "RealOctetS.h"
+#include "openscaSupport.h"
 
 // Forward declaration
 namespace RealOctet {

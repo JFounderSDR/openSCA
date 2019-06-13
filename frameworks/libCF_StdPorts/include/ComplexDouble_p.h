@@ -28,6 +28,7 @@
 
 #include <string>
 #include "ComplexDoubleS.h"
+#include "openscaSupport.h"
 
 namespace ComplexDouble {
 class ProvidesPort;

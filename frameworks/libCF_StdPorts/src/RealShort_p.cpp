@@ -21,6 +21,7 @@
 
 #include <iostream>
 #include "../include/RealShort_p.h"
+#include "../include/debug.h"
 
 StandardInterfaces_i::RealShort_p::RealShort_p(
     const char * _name) :

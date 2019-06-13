@@ -20,9 +20,8 @@
 *//****************************************************************************/
 
 #include <iostream>
-#include "openscaSupport.h"
 #include "../include/RealShort_u.h"
-#include "debug.h"
+#include "../include/debug.h"
 
 StandardInterfaces_i::RealShort_u::RealShort_u(
     const char * _portName) {

@@ -30,10 +30,8 @@
 #include "tao/PortableServer/PortableServer.h"
 
 #include "ConfigParser.h"
-#include "StandardEventC.h"
 #include "Boost_utils.h"
-#include "CFS.h"
-#include "debug.h"
+#include "rte_debug.h"
 
 namespace openscaSupport {
 
@@ -228,14 +226,6 @@ class ORB_Wrap {
 bool
 isValidFileName(
     const char * fileName);
-
-void
-sendObjAdded_event(
-    const char * producerId,
-    const char * sourceId,
-    const char * sourceName,
-    CORBA::Object_ptr sourceIOR,
-    StandardEvent::SourceCategoryType sourceCategory);
 
 /**
  * @brief this routine create a persistent POA as the child of ROOT POA, 

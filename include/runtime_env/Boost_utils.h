@@ -23,7 +23,7 @@
 #define _BOOST_UTILS_H_
 
 #include <string>
-#include "debug.h"
+#include "rte_debug.h"
 #include <iostream>
 #include <boost/interprocess/managed_shared_memory.hpp>
 #include <boost/interprocess/sync/interprocess_mutex.hpp>
@@ -52,10 +52,8 @@ extern const char * COMP_SYNCHRO_SEM;
 extern const char * CHECK_APP_STATUS;
 }
 
-char *
-getConfigFilePathByExecutablePath(
-	char * buf,
-	int count);
+std::string
+getConfigFilePathByExecutablePath();
 
 /**
  * Create a shared memory with given name and size.
@@ -121,7 +119,7 @@ waitSemaphore(
 		    (semName.c_str())(initVal);
 		sem->wait();
 	} catch (boost::interprocess::interprocess_exception & ex) {
-		DEBUG(0, [Boost_utils::waitSemaphore],
+		RTE_DEBUG(0, [Boost_utils::waitSemaphore],
 			" waitSemaphore interprocess exception:" << ex.what())
 	}
 }
@@ -147,7 +145,7 @@ postSemaphore(
 		    (semName.c_str())(initVal);
 		sem->post();
 	} catch (boost::interprocess::interprocess_exception & ex) {
-		DEBUG(0, [Boost_utils::postSemaphore],
+		RTE_DEBUG(0, [Boost_utils::postSemaphore],
 			" postSemaphore interprocess exception:" << ex.what())
 	}
 }

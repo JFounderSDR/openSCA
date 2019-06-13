@@ -21,7 +21,7 @@
 
 #include <iostream>
 #include "../include/MHAL_WF_p.h"
-#include "openscaSupport.h"
+#include "../include/debug.h"
 
 StandardInterfaces_i::MHAL_WF_p::MHAL_WF_p(
     const char * _name) :

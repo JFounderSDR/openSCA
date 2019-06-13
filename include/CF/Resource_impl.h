@@ -23,6 +23,7 @@
 #define EA_82A2ACAA_CBBB_45a1_81BD_AFBB37A6D10D__INCLUDED_
 
 #include "CFS.h"
+#include "debug.h"
 
 /**
  * The PropertySet class defines configure and query operations to access

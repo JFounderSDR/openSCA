@@ -28,6 +28,7 @@
 
 #include <string>
 #include "ComplexFloatS.h"
+#include "openscaSupport.h"
 
 namespace ComplexFloat {
 class ProvidesPort;

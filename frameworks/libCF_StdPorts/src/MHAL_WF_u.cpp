@@ -12,10 +12,8 @@
 
 #include <iostream>
 
-#include "openscaSupport.h"
-
+#include "../include/debug.h"
 #include "../include/MHAL_WF_u.h"
-#include "debug.h"
 
 StandardInterfaces_i::MHAL_WF_u::MHAL_WF_u(const char* _portName) 
 {

@@ -21,8 +21,7 @@
 
 #include <iostream>
 #include "../include/RealFloat_u.h"
-#include "openscaSupport.h"
-#include "debug.h"
+#include "../include/debug.h"
 
 StandardInterfaces_i::RealFloat_u::RealFloat_u(
     const char * _portName):

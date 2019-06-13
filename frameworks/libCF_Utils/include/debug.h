@@ -19,8 +19,8 @@
 * JFounder license agreement. Company website: www.onetek.net
 *//****************************************************************************/
 
-#ifndef OPENSCA_DEBUG_H
-#define OPENSCA_DEBUG_H
+#ifndef _DEBUG_H
+#define _DEBUG_H
 
 /**
  * 	level ~= 0, when openscaDebugLevel=0, nothing debug info print

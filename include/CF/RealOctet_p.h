@@ -35,6 +35,7 @@
 #include "utils.h"
 #include "Boost_utils.h"
 #include "RealOctetS.h"
+#include "openscaSupport.h"
 #include "CyclicBufferController.h"
 
 namespace RealOctet {

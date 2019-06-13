@@ -20,7 +20,7 @@
 *//****************************************************************************/
 #include <iostream>
 
-#include "debug.h"
+#include "../include/debug.h"
 #include "openscaSupport.h"
 
 #include "../include/File_impl.h"

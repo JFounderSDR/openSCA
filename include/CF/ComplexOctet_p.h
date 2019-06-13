@@ -28,6 +28,7 @@
 
 #include <string>
 #include "ComplexOctetS.h"
+#include "openscaSupport.h"
 
 namespace ComplexOctet {
 class ProvidesPort;

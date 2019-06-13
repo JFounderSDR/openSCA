@@ -22,7 +22,7 @@
 
 #include <iostream>
 #include "../include/ComplexFloat_p.h"
-#include "openscaSupport.h"
+#include "../include/debug.h"
 
 StandardInterfaces_i::ComplexFloat_p::ComplexFloat_p(
     const char * _portName):

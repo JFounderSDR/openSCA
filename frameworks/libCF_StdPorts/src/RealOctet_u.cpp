@@ -12,10 +12,8 @@
 
 #include <iostream>
 
-#include "openscaSupport.h"
-
+#include "../include/debug.h"
 #include "../include/RealOctet_u.h"
-#include "debug.h"
 
 StandardInterfaces_i::RealOctet_u::RealOctet_u(const char *_portName)
 {

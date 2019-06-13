@@ -20,6 +20,7 @@
 *//****************************************************************************/
 
 #include "../include/PRFParser.h"
+#include "../include/debug.h"
 
 /**
  * this class is designed to parse PRFxml. parse the whole file when the class is

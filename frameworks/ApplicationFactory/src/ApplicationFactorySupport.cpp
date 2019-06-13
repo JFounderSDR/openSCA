@@ -22,6 +22,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include "../include/ApplicationFactorySupport.h"
+#include "../include/debug.h"
 
 using namespace openscaSupport;
 

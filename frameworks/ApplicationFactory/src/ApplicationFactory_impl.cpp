@@ -22,6 +22,7 @@
 #include <iostream>
 #include <sstream>
 #include "../include/ApplicationFactory_impl.h"
+#include "../include/debug.h"
 #include "port_helpers.h"
 #include "utils.h"
 #include "Boost_utils.h"

@@ -27,6 +27,7 @@
 #include "PortTypesS.h"
 #include "CFS.h"
 #include "RealShortS.h"
+#include "openscaSupport.h"
 
 // Forward declaration
 namespace RealShort {

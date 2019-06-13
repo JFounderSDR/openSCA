@@ -20,6 +20,7 @@
 *//****************************************************************************/
 
 #include "../include/DeployStrategy.h"
+#include "../include/debug.h"
 #include "SADParser.h"
 #include "PRFParser.h"
 #include "SCDParser.h"

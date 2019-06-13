@@ -6,7 +6,7 @@
 ///////////////////////////////////////////////////////////
 
 #include "../include/CyclicBufferController.h"
-#include "debug.h"
+#include "../include/debug.h"
 #include <string.h>
 #include <assert.h>
 #include <stdlib.h>
@@ -97,6 +97,8 @@ CyclicBufferController::writeData(
 	//of datas have been witten to buffer.
 	unsigned int writableSize =
 			m_cycBufSize - (m_writePtr - m_readPtr + m_cycBufSize) % m_cycBufSize;
+	DEBUG(3, CyclicBufferController::writeData, "writableSize: " << writableSize)
+	DEBUG(3, CyclicBufferController::writeData, "needWrittenDataSize: " << needWrittenDataSize)
 	if(writableSize < needWrittenDataSize)
 	{
 		return false;

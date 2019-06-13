@@ -23,7 +23,7 @@
 #define __Aggregate_Device_Servant__
 
 #include "CFS.h"
-#include "openscaSupport.h"
+#include "debug.h"
 
 class AggregateDevice_impl :
 	public virtual POA_CF::AggregateDevice {

@@ -21,8 +21,7 @@
 
 #include <iostream>
 #include "../include/ComplexOctet_u.h"
-#include "openscaSupport.h"
-#include "debug.h"
+#include "../include/debug.h"
 
 StandardInterfaces_i::ComplexOctet_u::ComplexOctet_u(
     const char * _portName):

@@ -24,6 +24,7 @@
 
 #include <string>
 #include "RealShortS.h"
+#include "openscaSupport.h"
 
 #ifdef __SDS_OS_VXWORKS__
 #include <semLib.h>

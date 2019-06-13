@@ -22,6 +22,7 @@
 
 #include "../include/SADParser.h"
 #include "../include/SPDParser.h"
+#include "../include/debug.h"
 #include "ConfigParser.h"
 #include "utils.h"
 

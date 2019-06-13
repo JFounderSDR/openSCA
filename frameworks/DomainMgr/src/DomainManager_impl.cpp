@@ -319,7 +319,7 @@ throw (
 
 	//send a DomainManagementObjectAddedEventType  event to the Outgoing Domain Management
 	//event channel, upon successful installation of an application
-	openscaSupport::sendObjAdded_event(
+	sendObjAdded_event(
 	    m_id.c_str(),
 	    sadParser.getID(),
 	    sadParser.getName(),
@@ -593,7 +593,7 @@ throw (
 		"Adding DeviceManager ref to list")
 	addDevMgr(CF::DeviceManager::_duplicate(deviceMgr));
 
-	openscaSupport::sendObjAdded_event(
+	sendObjAdded_event(
 	    m_id.c_str(),
 	    deviceMgr->identifier(),
 	    deviceMgr->label(),

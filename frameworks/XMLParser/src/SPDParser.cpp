@@ -20,7 +20,7 @@
 *//****************************************************************************/
 
 #include "../include/SPDParser.h"
-#include "debug.h"
+#include "../include/debug.h"
 
 /**
  * this class is designed to parse all elements of SPD.xml. SPD.xml contains

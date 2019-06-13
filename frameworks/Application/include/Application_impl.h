@@ -25,6 +25,7 @@
 #include <iostream>
 #include <vector>
 
+#include "cf_utils.h"
 #include "Resource_impl.h"
 #include "openscaSupport.h"
 #include "SADParser.h"

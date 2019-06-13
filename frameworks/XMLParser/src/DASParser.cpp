@@ -20,7 +20,7 @@
 *//****************************************************************************/
 
 #include "../include/DASParser.h"
-#include "debug.h"
+#include "../include/debug.h"
 
 DASParser::~DASParser() {
 

@@ -28,6 +28,7 @@
 
 #include <string>
 #include "ComplexShortS.h"
+#include "openscaSupport.h"
 
 namespace ComplexShort {
 class ProvidesPort;

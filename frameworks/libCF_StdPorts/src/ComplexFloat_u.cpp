@@ -21,8 +21,7 @@
 
 #include <iostream>
 #include "../include/ComplexFloat_u.h"
-#include "openscaSupport.h"
-#include "debug.h"
+#include "../include/debug.h"
 
 StandardInterfaces_i::ComplexFloat_u::ComplexFloat_u(
     const char * _portName):

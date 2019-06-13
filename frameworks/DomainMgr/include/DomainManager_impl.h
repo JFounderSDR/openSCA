@@ -34,6 +34,7 @@
 #include "DCDParser.h"
 #include "SCDParser.h"
 #include "PRFParser.h"
+#include "cf_utils.h"
 #include "CFS.h"
 #include "ApplicationFactory_impl.h"
 #include "UsesConnectionInfo.h"

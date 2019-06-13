@@ -20,7 +20,6 @@
 *//****************************************************************************/
 
 #include "../include/Resource_impl.h"
-#include "debug.h"
 
 class PropertySet_impl;
 /**
