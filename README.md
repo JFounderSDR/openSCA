@@ -18,9 +18,12 @@ export CXX=arm-xilinx-linux-gnueabi-g++
 
 3. 编译前请先执行如下命令：
 
-source ~/Xilinx-2015.4/SDK/2015.4/settings64.sh、
+```
+source ~/Xilinx-2015.4/SDK/2015.4/settings64.sh
+```
 
 配置目录下的configure.cmake文件，配置选项如下：<br>
+
 ![load picture failed](https://github.com/JFounderSDR/openSCA/blob/master/compile_config.png)<br>
 
 ## 编译步骤
@@ -44,7 +47,7 @@ jLab实验平台 1.0<br>
 3、tinyxml<br>
 
 ## 补充说明
-&emsp;&emsp;项目还提供如下内容：<br>
+项目还提供如下内容：<br>
 1. 可直接运行的demo，仓库地址：(https://github.com/JFounderSDR/demos)<br>
 2. 说明文档，仓库地址：(https://github.com/JFounderSDR/documents)<br>
 3. 第三方库源码：仓库地址：(https://github.com/JFounderSDR/thirdparty)<br>
@@ -74,11 +77,13 @@ jLab实验平台 1.0<br>
 ## 工具支持
 介方同时提供SDR集成开发环境和平台监控软件jLab_Monitor。<br>
 
-SDR集成开发环境为用户提供模型驱动支撑，支持波形建模、节点建模、模型库管理、波形算法开发等功能，<br>
+&emsp;&emsp;SDR集成开发环境为用户提供模型驱动支撑，支持波形建模、节点建模、模型库管理、波形算法开发等功能，<br>
 用户可通过此工具生成平台包并一键导入至jLab实验平台运行。<br>
+
 ![load picture failed](https://github.com/JFounderSDR/openSCA/blob/master/IDE.png)<br>
 
-jLab_Monitor为平台监控软件，提供波形的加载、卸载、属性配置与查询、启动与停止波形等功能。<br>
+&emsp;&emsp;jLab_Monitor为平台监控软件，提供波形的加载、卸载、属性配置与查询、启动与停止波形等功能。<br>
+
 ![load_picture_failed](https://github.com/JFounderSDR/openSCA/blob/master/jMonitor.png)
 
 如对上述工具感兴趣，可发邮件至sdr@onetek.net进行咨询。
