@@ -21,10 +21,9 @@
 
 #include "../include/debug.h"
 
-unsigned int openscaDebugLevel = 0;
-
-void
+void 
 set_debug_level(
-    unsigned int level) {
-	openscaDebugLevel = level;
+	int level)
+{
+	setDebugLevel(DEBUG_LEVEL_ID, level);	
 }

@@ -17,8 +17,13 @@ SET(EXECUTABLE_OUTPUT_PATH "${PROJECT_SOURCE_DIR}/libs/frameworks")
 
 SET(FRAMEWORKS_DIR "${PROJECT_SOURCE_DIR}/frameworks")
 
-INCLUDE_DIRECTORIES("${PROJECT_SOURCE_DIR}/include/runtime_env"
-		"${PROJECT_SOURCE_DIR}/include/tiny1xml"
+link_libraries(
+       "${PROJECT_SOURCE_DIR}/libs/runtime_env/liborb_abstraction.so"
+       "${PROJECT_SOURCE_DIR}/libs/runtime_env/librte_utils.so"
+       "${PROJECT_SOURCE_DIR}/libs/tiny1xml/libtiny1xml.so"
+)
+
+INCLUDE_DIRECTORIES(
 		"${FRAMEWORKS_DIR}/CF_Interface/include"
 		"${FRAMEWORKS_DIR}/libCF_Utils/include"
 		"${FRAMEWORKS_DIR}/libCF_StdPorts/include"
@@ -26,8 +31,9 @@ INCLUDE_DIRECTORIES("${PROJECT_SOURCE_DIR}/include/runtime_env"
 		"${FRAMEWORKS_DIR}/ApplicationFactory/include"
         "${FRAMEWORKS_DIR}/File/include"
 		"${FRAMEWORKS_DIR}/FileSystem/include"
-    	"${FRAMEWORKS_DIR}/FileManager/include"
-        "${FRAMEWORKS_DIR}/XMLParser/include")
+        "${FRAMEWORKS_DIR}/FileManager/include"
+        "${FRAMEWORKS_DIR}/XMLParser/include"
+)
 
 #add subdirectory
 add_subdirectory(${FRAMEWORKS_DIR}/CF_Interface)

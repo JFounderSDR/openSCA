@@ -231,7 +231,7 @@ throw (
 		//open() - captital and small letter insensitive
 		FILE * fd = fopen(file.c_str(), "r");
 		if (fd == NULL) {
-			DEBUG(2, FileSystem::exists, ":open " << file << "failed")
+			DEBUG(2, FileSystem::exists, ":open " << file << " failed.")
 			throw CF::InvalidFileName();
 		}
 		DEBUG(7, FileSystem_impl, "In exists open suc.")

@@ -52,9 +52,6 @@ extern const char * COMP_SYNCHRO_SEM;
 extern const char * CHECK_APP_STATUS;
 }
 
-std::string
-getConfigFilePathByExecutablePath();
-
 /**
  * Create a shared memory with given name and size.
  */
@@ -149,14 +146,5 @@ postSemaphore(
 			" postSemaphore interprocess exception:" << ex.what())
 	}
 }
-
-void
-setConfigFilePathToSHM(
-    const char * path);
-
-void
-getConfigFilePathFromSHM(
-	char * path,
-	int size);
 
 #endif //_BOOST_UTILS_H_

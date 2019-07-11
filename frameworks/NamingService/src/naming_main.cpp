@@ -85,10 +85,7 @@ int main(int argc, char *argv[])
 	Naming_Svc_Shutdown killer(namingService);
 	Service_Shutdown kill_contractor(killer);
 	DEBUG(7, Naming_server, "argc is " << argc)
-	for (int i = 0; i < argc; i++) {
-		DEBUG(7, Naming_server,
-		      "nameServiceArgv[" << i << "] is " << nameServiceArgv[i])
-	}
+
 	if (namingService.init(argc + 1 - TASK_PARAMS_COUNT, nameServiceArgv) == -1)
 		ACE_ERROR_RETURN(
 		    (LM_ERROR, ACE_TEXT("Failed to start the Naming Service.\n")), 1);

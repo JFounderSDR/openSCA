@@ -34,59 +34,38 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include <errno.h>
-
 #include <iostream>
+#include <boost/interprocess/managed_shared_memory.hpp>
 
-#if 0
-#define QT_NO_DEBUG_OUTPUT      //shield debug output
-#define QT_NO_WARNING_OUTPUT    //shield warning output
-#endif
+#define  RTE_DEBUG_LEVEL_ID	 ("rteDebugLevelId")
+#define  SCA_SHM         ("sca_shm")
 
-#define  FUN_DEBUG_EN        0
-#define  FUN_WARNING_EN      0
+/**
+ * configure debug level.
+ * 
+ * @param[in] debugId  debug type
+ * @param[in] level    debug level
+ */
+void
+setDebugLevel(
+	std::string debugId,
+    int level);
 
-extern unsigned int openscaDebugLevel;
+/**
+ * configure debug level.
+ * 
+ * @return  debug level
+ */
+int
+getDebugLevel(
+	std::string debugId);
 
-extern void set_debug_level(unsigned int level);
+void 
+set_rte_debug_level(
+	int level);
 
 #define RTE_DEBUG(level, title, debuginfo) \
-	if(level <= openscaDebugLevel)\
+	if(level <= getDebugLevel(RTE_DEBUG_LEVEL_ID))\
 		std::cout << "PID:" << getpid() << "  " << #title << ":" << debuginfo << std::endl;
-
-#define RTE_DEBUG_V2(level, title, debuginfo) \
-	if(level <= openscaDebugLevelV2)\
-		std::cout << #title << ":" << debuginfo << std::endl;
-
-#if FUN_DEBUG_EN
-#define FUN_ENTER_RTE_DEBUG()       qRTE_DEBUG()<<"["<<__FUNCTION__<<__LINE__<<"]" <<
-									"entering..."
-
-#define FUN_LEAVE_RTE_DEBUG()       qRTE_DEBUG()<<"["<<__FUNCTION__<<__LINE__<<"]" <<
-									"leave..."
-
-#define FUN_APPEND_RTE_DEBUG()      qRTE_DEBUG()<<"["<<__FUNCTION__<<__LINE__<<"]"
-#else
-#define FUN_ENTER_RTE_DEBUG()       std::cout<<"["<<__FUNCTION__<<__LINE__<<"]" <<"entering..."<< std::endl;
-
-#define FUN_LEAVE_RTE_DEBUG()       std::cout<<"["<<__FUNCTION__<<__LINE__<<"]" <<"leave..."<< std::endl;
-
-#define FUN_APPEND_RTE_DEBUG()      std::cout<<"["<<__FUNCTION__<<__LINE__<<"]"
-#endif
-
-#if FUN_WARNING_EN
-#define FUN_ENTER_WARNING()     qWarning()<<"["<<__FUNCTION__<<__LINE__<<"]" <<
-									"entering..."
-
-#define FUN_LEAVE_WARNING()     qWarning()<<"["<<__FUNCTION__<<__LINE__<<"]" <<
-									"leave..."
-
-#define FUN_APPEND_WARNING()    qWarning()<<"["<<__FUNCTION__<<__LINE__<<"]"
-#else
-#define FUN_ENTER_WARNING()     std::cout<<"["<<__FUNCTION__<<__LINE__<<"]" <<"entering..."<<std::endl;
-
-#define FUN_LEAVE_WARNING()     std::cout<<"["<<__FUNCTION__<<__LINE__<<"]" <<"leave..."<<std::endl;
-									
-#define FUN_APPEND_WARNING()    std::cout<<"["<<__FUNCTION__<<__LINE__<<"]"
-#endif
 
 #endif	//OPENSCA_DEBUG_H

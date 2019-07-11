@@ -81,7 +81,7 @@ StandardInterfaces_i::RealOctet_u::pushPacket(
 			if (!CORBA::is_nil(dest_ports[i].port_obj)) {
 				dest_ports[i].port_obj->pushPacket(data);
 			} else {
-				DEBUG(5, RealOctet_u, "dest_ports[i].port_obj is null...")
+				DEBUG(0, RealOctet_u, "dest_ports[i].port_obj is null...")
 			}
 		} catch (CORBA::SystemException & e) {
 			std::cout << "CORBA::SystemException type: " << e.completed() << std::endl;

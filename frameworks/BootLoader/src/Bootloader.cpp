@@ -34,6 +34,7 @@
 #include "../include/LaunchNode.h"
 #include "../include/debug.h"
 #include "utils.h"
+#include "cf_utils.h"
 #include "SPDParser.h"
 #include "DCDParser.h"
 #include "FileSystem_impl.h"
@@ -62,11 +63,12 @@ int launch_opensca(int argc, char* argv[])
 int main(int argc, char* argv[])
 #endif
 {
-	DEBUG(5, Bootloader_main, "start...")
 	createSharedMemory(SCA_SHM, SCA_SHM_SIZE);
+	set_debug_level(0);
+	set_rte_debug_level(0);
+	DEBUG(5, Bootloader_main, "start...")
     std::string exePath = getConfigFilePathByExecutablePath();
     setConfigFilePathToSHM(exePath.c_str());
-
     char openScaPath[64];
     getConfigFilePathFromSHM(openScaPath, sizeof(openScaPath));
   	ConfigParser configParser(openScaPath);
