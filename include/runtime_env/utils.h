@@ -32,6 +32,7 @@
 #include "ConfigParser.h"
 #include "TimeDelay.h"
 #include "rte_debug.h"
+#include "Boost_utils.h"
 
 #define SDS_SLEEP                               1000000
 ///< unsigned long of max size
@@ -304,5 +305,23 @@ std::string
 replaceFileNameofPath(
     const char* fullPath,
     const char* fileName);
+
+/**
+ *  configure opensca.conf path.
+ */
+void
+setConfigFilePathToSHM(
+    const char * path);
+
+/**
+ * get opensca.conf path.
+ * 
+ * @param[in] path  storage path information
+ * @param[in] size  maximum path length  
+ */
+void
+getConfigFilePathFromSHM(
+    char * path,
+    int size);
 
 #endif //_LIBCF_UTILS_H_

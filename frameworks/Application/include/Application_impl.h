@@ -25,11 +25,11 @@
 #include <iostream>
 #include <vector>
 
-#include "cf_utils.h"
 #include "Resource_impl.h"
 #include "openscaSupport.h"
 #include "SADParser.h"
 #include "SPDParser.h"
+#include "cf_utils.h"
 #include "UsesConnectionInfo.h"
 #include "Boost_utils.h"
 

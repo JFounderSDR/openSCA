@@ -1,0 +1,5 @@
+1. 调整cmake中 TAO库的位置
+2. /openSCA/frameworks/libCF_Utils的DEBUG改成可在各处设置等级，初始设置在BootLoader.out
+3. /openSCA/runtime_env/rte_utils的RTE_DEBUG改成可在各处设置等级，初始设置在BootLoader.out
+4. 调整Boost中的关于debug、path设置的函数位置，将其放入utils中
+5. 给各项目增加ChangeLogs文件，用来存放日志

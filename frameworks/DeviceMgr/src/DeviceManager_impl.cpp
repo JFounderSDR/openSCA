@@ -213,7 +213,7 @@ throw(
 
 	CF::File_var file;
 	try {
-		DEBUG(7, DeviceManager_impl, profile)
+		DEBUG(7, [DeviceManager_impl::openprofileFile], "profile:" << profile)
 		file = m_fileSys->open(profile, true);
 	} catch (CF::InvalidFileName& e) {
 		DEBUG(5, DeviceManager,

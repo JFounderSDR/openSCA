@@ -1,0 +1,11 @@
+1. 调整openSCA/runtime_env、openSCA/framework/libCF_Utils模块结构，增加RTE_DEBUG
+2. 调整openSCA/framework/libCF_StdPorts模块源代码所包含的头文件
+3. 优化openSCA/examples/MsgTrans_Ctroller组件的query功能
+4. 增加openSCA/testsuite/下的测试用例。包括：
+	test_applicationCommunication_main 通信接口测试；
+	test_interface_main 基础接口测试。
+5. 更新openSCA/include模块的文件
+6. 更新sdrLibrary/runtime_env下的liborb_abstraction.so和librte_utils.so两个动态库
+7. 调整demos/SCA_Platform平台包，修改AudioCodeCComp和MHAL_Device的prf配置文件，
+增加audio_compression_ratio、max_business_rate、max_mhal_packet_size属性，更新libs库和二进制文件
+8. documents下，新增openSCA用户手册文档

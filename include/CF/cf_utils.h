@@ -31,9 +31,10 @@
 #include "macros.h"
 #include "ConfigParser.h"
 #include "TimeDelay.h"
-#include "rte_debug.h"
+#include "debug.h"
 #include "CFS.h"
 #include "StandardEventC.h"
+#include "Boost_utils.h"
 
 /**
  * @brief  The operation shall open a file, and return the
@@ -84,5 +85,9 @@ sendObjAdded_event(
     const char * sourceName,
     CORBA::Object_ptr sourceIOR,
     StandardEvent::SourceCategoryType sourceCategory);
+
+
+std::string
+getConfigFilePathByExecutablePath();
 
 #endif //_LIBCF_UTILS_H_

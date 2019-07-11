@@ -36,21 +36,24 @@
 #include <errno.h>
 
 #include <iostream>
+#include "Boost_utils.h"
+
+#define DEBUG_LEVEL_ID    ("debugLevelId")
 
 #if 0
 #define QT_NO_DEBUG_OUTPUT      //shield debug output
 #define QT_NO_WARNING_OUTPUT    //shield warning output
 #endif
 
+void 
+set_debug_level(
+	int level);
+
 #define  FUN_DEBUG_EN        0
 #define  FUN_WARNING_EN      0
 
-extern unsigned int openscaDebugLevel;
-
-extern void set_debug_level(unsigned int level);
-
 #define DEBUG(level, title, debuginfo) \
-	if(level <= openscaDebugLevel)\
+	if(level <= getDebugLevel(DEBUG_LEVEL_ID))\
 		std::cout << "PID:" << getpid() << "  " << #title << ":" << debuginfo << std::endl;
 
 #define DEBUG_V2(level, title, debuginfo) \
