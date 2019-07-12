@@ -409,12 +409,12 @@ throw (
 
 	try {
 		PropertySet_impl::configure(configProperties);
-	} catch (CF::PropertySet::PartialConfiguration) {
+	} catch (CF::PropertySet::PartialConfiguration & e) {
 		DEBUG(5, Device_servant, "partial configuration exception.")
-		throw CF::PropertySet::PartialConfiguration();
-	} catch (CF::PropertySet::InvalidConfiguration) {
+		throw e;
+	} catch (CF::PropertySet::InvalidConfiguration & e) {
 		DEBUG(5, Device_servant, "invalid configuration exception.")
-		throw CF::PropertySet::InvalidConfiguration();
+		throw e;
 	} catch (...) {
 		DEBUG(5, Device_servant, "occur unkown exception when config.")
 		throw;

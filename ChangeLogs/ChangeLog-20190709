@@ -1,9 +1,10 @@
 1. 调整cmake文件中关于库链接的配置，之前在openSCA目录下的CMakeLists.txt文件中添加了一部分公共库(如第三方库)，
-   所有待编译的文件都会链接都会链接这些库，但实际上有些待编译的文件不依赖这些库，导致当被依赖库不存在时，文件不能执行。
+   所有待编译的文件都会链接这些库，但实际上有些待编译的文件不依赖这些库，导致当被依赖库不存在时，文件不能执行。
    现根据待编译文件实际的依赖情况，为每个待编译文件单独链接所需要的库。
-2. 更改/openSCA/frameworks/libCF_Utils的DEBUG的实现方式，使得在一个进程中设置了DEBUG等级，能对所有进程生效，初始等级为0，
+2. 更改/openSCA/frameworks/libCF_Utils的DEBUG的实现方式，使得在一个进程中设置了DEBUG等级，能对所有进程生效，初始等级为0。
    用户可通过set_debug_level函数更改。
-3. 更改/openSCA/runtime_env/rte_utils的RTE_DEBUG的实现方式，使得在一个进程中设置了DEBUG等级，能对所有进程生效，初始等级为0，
+3. 更改/openSCA/runtime_env/rte_utils的RTE_DEBUG的实现方式，使得在一个进程中设置了DEBUG等级，能对所有进程生效，初始等级为0。
    用户可通过set_rte_debug_level函数更改。
 4. 将设置debug等级、获取配置文件路径函数从Boost_utils.cpp移动到rte_utils.cpp、cf_utils.cpp文件中
 5. 给各项目增加ChangeLogs文件，用来记录每次的更改内容。
+6. 修复应用configure函数的Bug，使组件异常可以被应用捕获。

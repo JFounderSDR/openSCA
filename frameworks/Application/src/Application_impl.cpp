@@ -293,7 +293,7 @@ Application_impl::componentProcessIds() {
 		    *m_appCompProcIds);
 	} catch (...) {
 		DEBUG(5, App_impl, "[Application_impl::componentProcessIds] Unknown Exception.")
-		throw ;
+		throw;
 	}
 
 	return cmpProcIdsSeq._retn();
@@ -319,12 +319,12 @@ throw (
 		    "[Application_impl::configure] assemblyController-> \
 		    configure failed with CF::PropertySet::PartialConfiguration \
 		    Exception.")
-		throw CF::PropertySet::PartialConfiguration();
+		throw e;
 	} catch (CF::PropertySet::InvalidConfiguration & e) {
 		DEBUG(5, App_impl,
 		    "[Application_impl::configure] assemblyController->configure \
 		    failed with CF::PropertySet::InvalidConfiguration Exception.")
-		throw CF::PropertySet::InvalidConfiguration();
+		throw e;
 	} catch (CORBA::SystemException & e) {
 		DEBUG(5, App_impl,
 		    "[Application_impl::configure] assemblyController->configure \
@@ -394,7 +394,7 @@ throw (
 			}
 		} else {
 			DEBUG(1, Application, " fail to get external indentifier " )
-			throw ;
+			throw;
 		}
 	}
 
@@ -409,12 +409,12 @@ throw (
 		DEBUG(5, App_impl,
 		    "[Application_impl::getPort] assemblyController->getPort failed \
 			with UnknownPort Exception.")
-		throw CF::PortSupplier::UnknownPort();
+		throw e;
 	} catch (CORBA::SystemException & e) {
 		DEBUG(5, App_impl,
 		    "[Application_impl::getPort] assemblyController->getPort failed \
 			with CORBA::SystemException.")
-		throw ;
+		throw;
 	} catch (...) {
 		DEBUG(5, App_impl,
 		    "[Application_impl::getPort] assemblyController->getPort failed \
@@ -565,12 +565,12 @@ throw (
 		DEBUG(5, App_impl,
 		    "[Application_impl::initialize] assemblyController-> \
 		    initialize failed with InitializeError Exception.")
-		throw CF::LifeCycle::InitializeError();
+		throw e;
 	} catch (CORBA::SystemException & e) {
 		DEBUG(5, App_impl,
 		    "[Application_impl::initialize] assemblyController-> \
 		    initialize failed with CORBA::SystemException.")
-		throw ;
+		throw;
 	} catch (...) {
 		DEBUG(5, App_impl,
 		    "[Application_impl::initialize] assemblyController-> \
@@ -607,12 +607,12 @@ throw (
 		DEBUG(5, App_impl,
 		      "[Application_impl::query]\"assemblyController->query\"failed \
 					 with CF::PropertySet::PartialConfiguration Exception.")
-		throw CF::UnknownProperties();
+		throw e;
 	} catch (CORBA::SystemException & e) {
 		DEBUG(5, App_impl,
 		      "[Application_impl::query]\"assemblyController->query\"failed \
 					 with CORBA::SystemException.")
-		throw ;
+		throw;
 	} catch (...) {
 		DEBUG(5, App_impl,
 		      "[Application_impl::query]\"assemblyController->query\"failed \
@@ -1304,17 +1304,17 @@ throw (
 		DEBUG(5, App_impl,
 		    "[Application_impl::runTest] assemblyController->runTest \
 		    failed with InitializeError Exception.")
-		throw CF::UnknownProperties();
+		throw e;
 	} catch (CF::TestableObject::UnknownTest & e) {
 		DEBUG(5, App_impl,
 		    "[Application_impl::runTest] assemblyController->runTest failed \
 			with CF::TestableObject::UnknownTest Exception.")
-		throw CF::TestableObject::UnknownTest();
+		throw e;
 	} catch (CORBA::SystemException & e) {
 		DEBUG(5, App_impl,
 		    "[Application_impl::runTest] assemblyController->runTest failed \
 			with CORBA::SystemException.")
-		throw ;
+		throw;
 	} catch (...) {
 		DEBUG(5, App_impl,
 		    "[Application_impl::runTest] assemblyController->runTest failed \
@@ -1340,12 +1340,12 @@ throw (
 		DEBUG(5, App_impl,
 		    "[Application_impl::start] assemblyController->start failed \
 			with CF::Resource::StartError Exception.")
-		throw CF::UnknownProperties();
+		throw e;
 	} catch (CORBA::SystemException & e) {
 		DEBUG(5, App_impl,
 		    "[Application_impl::start] assemblyController->start failed \
 			with CORBA::SystemException.")
-		throw ;
+		throw;
 	} catch (...) {
 		DEBUG(5, App_impl,
 		    "[Application_impl::start] assemblyController->start failed \
@@ -1371,12 +1371,12 @@ throw (
 		DEBUG(5, App_impl, "[Application_impl::stop] \
 			assemblyController->stop failed \
 			with CF::Resource::StopError Exception.")
-		throw CF::UnknownProperties();
+		throw e;
 	} catch (CORBA::SystemException & e) {
 		DEBUG(5, App_impl, "[Application_impl::stop] \
 			assemblyController->stop failed \
 			with CORBA::SystemException.")
-		throw ;
+		throw;
 	} catch (...) {
 		DEBUG(5, App_impl, "[Application_impl::stop] \
 			assemblyController->stop failed \

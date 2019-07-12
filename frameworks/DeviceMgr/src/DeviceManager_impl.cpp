@@ -215,14 +215,14 @@ throw(
 	try {
 		DEBUG(7, [DeviceManager_impl::openprofileFile], "profile:" << profile)
 		file = m_fileSys->open(profile, true);
-	} catch (CF::InvalidFileName& e) {
+	} catch (CF::InvalidFileName & e) {
 		DEBUG(5, DeviceManager,
 				"[DeviceManager_impl::DeviceManager_impl]when opening" <<profile << "with invalid name")
 		CF::InvalidFileName invalidFileName;
 		invalidFileName.errorNumber = CF::CFEINVAL;
 		invalidFileName.msg = CORBA::string_dup(profile);
 		throw invalidFileName;
-	} catch (CF::FileException& e) {
+	} catch (CF::FileException & e) {
 		DEBUG(5, DeviceManager,
 				"[DeviceManager_impl::DeviceManager_impl]when opening " <<profile << "File exception occur")
 		throw CF::FileException(e);
