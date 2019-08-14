@@ -4,7 +4,7 @@
 ## 编译环境
 1. 宿主机操作系统：建议Ubuntu 16.04及以上版本  宿主机硬件版本：ARMv7_CortexA9；<br>
 2. 交叉编译器现支持两类：jLinux、PetaLinux2015.4。<br>
-可去此处获取编译器：https://github.com/JFounderSDR/jRootfs-and-Toolchains
+可去此处获取编译器：https://github.com/JFounderSDR/jRootfs-and-Toolchains<br>
 jLinux：arm-linux-gnueabihf-gcc、arm-linux-gnueabihf-g++<br>
 版本: 6.5.0 (Linaro GCC 6.5-2018.12)<br>
 PetaLinux2015.4：arm-xilinx-linux-gnueabi-gcc、arm-xilinx-linux-gnueabi-g++<br>
