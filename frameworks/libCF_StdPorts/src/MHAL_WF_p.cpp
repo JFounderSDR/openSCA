@@ -30,7 +30,7 @@ StandardInterfaces_i::MHAL_WF_p::MHAL_WF_p(
 	data_servant_var = data_servant->_this();
 
 	m_buffCtrl = new CyclicBufferController();
-	m_buffCtrl->initializeDataBuf(80960);
+	m_buffCtrl->initializeDataBuf();
 
 	openscaSupport::ORB_Wrap orb;
 	std::string objName( _name );
@@ -159,8 +159,8 @@ MHAL_WF::providesPort::pushPacket(
 	DEBUG(3, [MHAL_WF_p::pushPacket], " ret:" << ret)
 	if (!ret)
 	{
-		DEBUG(0, RealOctet,
-			"providesPort::wirteData falied, portName is: " << base->portName)
+		DEBUG(8, RealOctet,
+			"providesPort::writeData falied, portName is: " << base->portName)
 		return;
 	}
 		

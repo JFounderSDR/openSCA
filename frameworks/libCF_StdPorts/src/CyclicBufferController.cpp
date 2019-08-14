@@ -1,21 +1,30 @@
-///////////////////////////////////////////////////////////
-//  CyclicBufferController.cpp
-//  Implementation of the Class CyclicBufferController
-//  Created on:      11-7��-2018 14:33:52
-//  Original author: JHX
-///////////////////////////////////////////////////////////
+/***************************************************************************//**
+* @file     CyclicBufferController.cpp
+* @author   open Team
+* @version  1
+* @date     2017-03-14
+* @brief
+* @Details
+* @Remark : <Description>
+* @verbatim
+* ==============================================================================
+* <Date>     | <Version> | <Author>       | <Description>
+* ==============================================================================
+*  2019-03-19 | 1       | open Team       | Create file
+* ==============================================================================
+* @endverbatim
+* ******************************************************************************
+* <h2><center>&copy; Copyright(c)2017-2022 JFounder Info Tech Co.,Ltd</center></h2>
+* All rights reserved. The right to copy, distribute, modify or otherwise make use
+* of this software may be licensed only pursuant to the terms
+* of an applicable JFounder license agreement.
+*//****************************************************************************/
 
 #include "../include/CyclicBufferController.h"
 #include "../include/debug.h"
-#include <string.h>
-#include <assert.h>
-#include <stdlib.h>
-#include <iostream>
-#include <stdio.h>
 
 CyclicBufferController::CyclicBufferController()
 {
-	//m_dataBuf = NULL;
 	m_readPtr = NULL;
 	m_writePtr = NULL;
 	m_startPtr = NULL;
@@ -51,22 +60,15 @@ unsigned int CyclicBufferController::getWritableSize()
  * @retval    true    initialize data buffer successfully
  * @retval    false   initialize data buffer failed
  */
-bool CyclicBufferController::initializeDataBuf(unsigned int bufSize)
+bool CyclicBufferController::initializeDataBuf()
 {
-	//m_cycBufSize = bufSize;
-	m_cycBufSize = 80960;
-//	std::cout << "************m_cycBufSize: " << m_cycBufSize << std::endl;
-	//m_dataBuf = (char*)malloc(bufSize);
+	m_cycBufSize = BUFFER_SIZE;
 	if(m_dataBuf)
 	{
 		m_startPtr = m_dataBuf;
-		//m_endPtr = m_dataBuf + bufSize;
-		m_endPtr = m_dataBuf + 80960;
+		m_endPtr = m_dataBuf + BUFFER_SIZE;
 		m_writePtr = m_dataBuf;
 		m_readPtr = m_dataBuf;
-//		printf("m_startPtr: %p\n", m_startPtr);
-//		printf("m_readPtr: %p\n", m_readPtr);
-//		printf("m_endPtr: %p\n", m_endPtr);
 		return true;
 	}else{
 		return false;
@@ -92,21 +94,19 @@ CyclicBufferController::writeData(
 {
 	assert(writedData);
 	unsigned int needWrittenDataSize = dataSize + 2;
-	DEBUG(1, CyclicBufferController::writeData, "dataSize: " << dataSize)
+	DEBUG(5, CyclicBufferController::writeData, "dataSize: " << dataSize)
 
 	//of datas have been witten to buffer.
 	unsigned int writableSize =
 			m_cycBufSize - (m_writePtr - m_readPtr + m_cycBufSize) % m_cycBufSize;
 	DEBUG(3, CyclicBufferController::writeData, "writableSize: " << writableSize)
 	DEBUG(3, CyclicBufferController::writeData, "needWrittenDataSize: " << needWrittenDataSize)
-	if(writableSize < needWrittenDataSize)
-	{
+	if(writableSize < needWrittenDataSize) {
 		return false;
 	}
 	
-	if(dataSize < 1)
-	{
-		std::cout << "invalid data" << std::endl;
+	if(dataSize < 1) {
+		DEBUG(0, CyclicBufferController::writeData, "invalid data.")
 		return false;
 	}
 	unsigned int rearLen = m_endPtr - m_writePtr;
@@ -140,12 +140,11 @@ CyclicBufferController::writeData(
  */
 char* CyclicBufferController::readData()
 {
-	DEBUG(1, CyclicBufferController::readData, "enter in...")
+	DEBUG(7, CyclicBufferController::readData, "enter in...")
 	unsigned int readableSize =
 			(m_writePtr - m_readPtr + m_cycBufSize) % m_cycBufSize;
 
-	if( readableSize <= 2 )
-	{
+	if(readableSize <= 2){
 		return NULL;
 	}
 	
@@ -163,9 +162,8 @@ char* CyclicBufferController::readData()
 	}
 
 	unsigned short dataSize = poyloadSize + 2;
-//	DEBUG(0, [CyclicBufferController::readData], "dataSize: " << dataSize)
-//	DEBUG(0, [CyclicBufferController::readData], "rearLen: " << rearLen)
-	if( rearLen >= dataSize )
+
+	if(rearLen >= dataSize)
 	{
 		memcpy(m_readBuf, m_readPtr, dataSize);
 		m_readPtr += dataSize;
@@ -185,9 +183,5 @@ char* CyclicBufferController::readData()
  */
 void CyclicBufferController::releaseBuf()
 {
-//	if(m_dataBuf)
-//	{
-//		free(m_dataBuf);
-//		m_dataBuf = NULL;
-//	}
+
 }

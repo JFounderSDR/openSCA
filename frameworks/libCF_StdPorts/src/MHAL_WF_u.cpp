@@ -68,6 +68,7 @@ void StandardInterfaces_i::MHAL_WF_u::pushPacket(CORBA::UShort logicalDest,
 									  const ::JTRS::OctetSequence & payload)
 {
 	DEBUG(7,MHAL_WF_u::pushPacket,"enter in ...")
+	DEBUG(7,MHAL_WF_u::pushPacket,"dest_ports.size():" << dest_ports.size())
     for (unsigned int i = 0; i < dest_ports.size(); ++i) 
     {
         DEBUG(7,MHAL_WF_u,"in dest_ports loop")

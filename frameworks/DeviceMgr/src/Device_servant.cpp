@@ -198,7 +198,7 @@ throw (
 	//check for device state
 	if ((m_adminState != CF::Device::UNLOCKED) ||
 	        (m_operationalState == CF::Device::DISABLED)) {
-		DEBUG(2, Device_servant, "this device is unlocked or disabled.")
+		DEBUG(2, Device_servant, "this device is not unlocked or disabled.")
 		throw CF::Device::InvalidState();
 	}
 
@@ -409,12 +409,12 @@ throw (
 
 	try {
 		PropertySet_impl::configure(configProperties);
-	} catch (CF::PropertySet::PartialConfiguration) {
+	} catch (CF::PropertySet::PartialConfiguration & e) {
 		DEBUG(5, Device_servant, "partial configuration exception.")
-		throw CF::PropertySet::PartialConfiguration();
-	} catch (CF::PropertySet::InvalidConfiguration) {
+		throw e;
+	} catch (CF::PropertySet::InvalidConfiguration & e) {
 		DEBUG(5, Device_servant, "invalid configuration exception.")
-		throw CF::PropertySet::InvalidConfiguration();
+		throw e;
 	} catch (...) {
 		DEBUG(5, Device_servant, "occur unkown exception when config.")
 		throw;

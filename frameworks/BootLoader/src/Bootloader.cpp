@@ -42,9 +42,6 @@
 #include "ConfigParser.h"
 #include "Boost_utils.h"
 
-#define SEND_ID			1800
-#define RECE_ID			1300
-
 const std::string
 checkConfigInfo(
     ConfigParser * configParser,
@@ -60,7 +57,7 @@ splitString(
 extern "C"
 int launch_opensca(int argc, char* argv[])
 #elif defined __SDS_OS_LINUX__
-int main(int argc, char* argv[])
+int main(int argc, char * argv[])
 #endif
 {
 	createSharedMemory(SCA_SHM, SCA_SHM_SIZE);

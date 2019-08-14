@@ -513,17 +513,21 @@ class ApplicationFactory_impl :
 
 	void updateInstanceNum();
 
-	//@brief
-	//convert UUID(DCE::233f-324lfs-32wefe:1) to id with instance num. the last num is instance num
-	//@return
-	//id with instance num
+	/**
+	 * @brief	convert UUID to id with application instance num. the last num 
+	 *          is instance num.
+	 *
+	 * @param[in]  applicationId   softwareassembly id in the sad.xml file.
+	 *
+	 * @return  id with instance num
+	 */
 	std::string
 	getIdentifierWithInstanceNum(
-	    const std::string & scaid);
+	    const std::string & applicationId);
 
 	bool
 	isValidOfSCAId(
-	    const std::string & scaid);
+	    const std::string & applicationId);
 
 	void 
 	lock();

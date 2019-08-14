@@ -143,8 +143,7 @@ INCLUDE_DIRECTORIES("${PROJECT_INCULDE_DIR}/tiny1xml"
                   "${ACE_INCLUDE_DIR}/TAO/tao"
                   "${ACE_INCLUDE_DIR}/TAO/orbsvcs"
                   "${ACE_INCLUDE_DIR}/TAO/orbsvcs/CosEvent"
-                  "${COMPILER_DIR}/SDK/2015.4"
-                  "${COMPILER_DIR}/SDK/2015.4/gnu/arm/lin/arm-xilinx-linux-gnueabi/include")
+                  "${COMPILER_DIR}/include")
 
 ###############################################################################
 # Compile library.
