@@ -108,6 +108,9 @@ jLab实验平台 1.0<br>
 4. 组件和逻辑设备开发实例代码，仓库地址：(https://github.com/JFounderSDR/examples)
 5. 测试实例代码，仓库地址：(https://github.com/JFounderSDR/testsuite)
 6. openSCA-SDK，仓库地址：(https://github.com/JFounderSDR/sdrSDK)
+7. 根文件系统和编译器，仓库地址：(https://github.com/JFounderSDR/jRootfs-and-Toolchains)
+8. 内核源码，仓库地址：(https://github.com/JFounderSDR/jLinux)
+9. uboot，仓库地址：(https://github.com/JFounderSDR/jU-Boot)
 
 ## 项目描述
 &emsp;&emsp;本项目为开源版本，供开发者学习、研究之用，实现了部分基础接口，如加载波形、卸载波形、<br>
