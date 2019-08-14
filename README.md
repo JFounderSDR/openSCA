@@ -3,11 +3,11 @@
 
 ## 编译环境
 1. 宿主机操作系统：建议Ubuntu 16.04及以上版本  宿主机硬件版本：ARMv7_CortexA9；<br>
-2. 交叉编译器现支持两类：jLinux、PetaLinux2015.4.<br>
-jLinux：arm-linux-gnueabihf-gcc、arm-linux-gnueabihf-g++，<br>
-版本: 6.5.0 (Linaro GCC 6.5-2018.12)
-PetaLinux2015.4：arm-xilinx-linux-gnueabi-gcc、arm-xilinx-linux-gnueabi-g++，<br>
-版本：4.9.2 (Sourcery CodeBench Lite 2015.05-17)；<br>
+2. 交叉编译器现支持两类：jLinux、PetaLinux2015.4。<br>
+jLinux：arm-linux-gnueabihf-gcc、arm-linux-gnueabihf-g++<br>
+版本: 6.5.0 (Linaro GCC 6.5-2018.12)<br>
+PetaLinux2015.4：arm-xilinx-linux-gnueabi-gcc、arm-xilinx-linux-gnueabi-g++<br>
+版本：4.9.2 (Sourcery CodeBench Lite 2015.05-17)<br>
 3. cmake，版本不低于3.5；<br>
 
 ## 编译设置
