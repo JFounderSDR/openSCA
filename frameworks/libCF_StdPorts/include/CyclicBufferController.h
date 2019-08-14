@@ -1,12 +1,35 @@
-///////////////////////////////////////////////////////////
-//  CyclicBufferController.h
-//  Implementation of the Class CyclicBufferController
-//  Created on:      11-7��-2018 14:33:52
-//  Original author: JHX
-///////////////////////////////////////////////////////////
+/***************************************************************************//**
+* @file     CyclicBufferController.h
+* @author   open Team
+* @version  1
+* @date     2017-03-14
+* @brief
+* @Details
+* @Remark : <Description>
+* @verbatim
+* ==============================================================================
+* <Date>     | <Version> | <Author>       | <Description>
+* ==============================================================================
+*  2019-03-19 | 1       | open Team       | Create file
+* ==============================================================================
+* @endverbatim
+* ******************************************************************************
+* <h2><center>&copy; Copyright(c)2017-2022 JFounder Info Tech Co.,Ltd</center></h2>
+* All rights reserved. The right to copy, distribute, modify or otherwise make use
+* of this software may be licensed only pursuant to the terms
+* of an applicable JFounder license agreement.
+*//****************************************************************************/
 
 #if !defined(EA_79624BC7_BB4C_4e04_BA35_C7BF6F1EC6C7__INCLUDED_)
 #define EA_79624BC7_BB4C_4e04_BA35_C7BF6F1EC6C7__INCLUDED_
+#include "debug.h"
+#include <string.h>
+#include <assert.h>
+#include <stdlib.h>
+#include <iostream>
+#include <stdio.h>
+
+#define BUFFER_SIZE 80960
 
 /**
  * @brief	The class managers a buffer which used to store data form
@@ -25,7 +48,7 @@ public:
 	virtual ~CyclicBufferController();
 
 	unsigned int getWritableSize();
-	bool initializeDataBuf(unsigned int bufSize);
+	bool initializeDataBuf();
 	char* readData();
 	void releaseBuf();
 	bool writeData(const char* writedData, unsigned int dataSize);

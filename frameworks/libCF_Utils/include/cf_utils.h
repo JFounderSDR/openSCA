@@ -36,6 +36,14 @@
 #include "StandardEventC.h"
 #include "Boost_utils.h"
 
+void 
+printCORBASystemException(
+	const CORBA::SystemException & e);
+
+void
+printCORBAException(
+	const CORBA::Exception & e);
+
 /**
  * @brief  The operation shall open a file, and return the
  *         file object reference.

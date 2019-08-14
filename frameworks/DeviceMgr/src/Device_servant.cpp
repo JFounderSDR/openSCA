@@ -198,7 +198,7 @@ throw (
 	//check for device state
 	if ((m_adminState != CF::Device::UNLOCKED) ||
 	        (m_operationalState == CF::Device::DISABLED)) {
-		DEBUG(2, Device_servant, "this device is unlocked or disabled.")
+		DEBUG(2, Device_servant, "this device is not unlocked or disabled.")
 		throw CF::Device::InvalidState();
 	}
 

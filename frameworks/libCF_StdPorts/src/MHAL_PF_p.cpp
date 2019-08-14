@@ -30,7 +30,7 @@ StandardInterfaces_i::MHAL_PF_p::MHAL_PF_p(
 	data_servant_var = data_servant->_this();
 
 	m_buffCtrl = new CyclicBufferController();
-	m_buffCtrl->initializeDataBuf(80960);
+	m_buffCtrl->initializeDataBuf();
 }
 
 StandardInterfaces_i::MHAL_PF_p::~MHAL_PF_p() {
@@ -142,24 +142,25 @@ void
 MHAL_PF::providesPort::pushPacket(
     CORBA::UShort logicalDest,
     const JTRS::OctetSequence & payload) {
-//	DEBUG(7, [MHAL_PF_p::pushPacket], " enter...")
+	DEBUG(7, [MHAL_PF_p::pushPacket], " enter...")
 
 	base->logicalDest = logicalDest;
 	
 	unsigned short sendLen = payload.length();
 	char sendBuff[sendLen] = {};
 	memcpy(sendBuff, payload.get_buffer(), sendLen);
+	DEBUG(7, [MHAL_PF_p::pushPacket], " payload.length:" << payload.length())
 	bool ret = (base->m_buffCtrl)->writeData(sendBuff, sendLen);
 	if (!ret)
 	{
-		DEBUG(7, RealOctet, 
-			"providesPort::wirteData falied, portName is: " << base->portName)
+		DEBUG(8, RealOctet, 
+			"providesPort::writeData falied, portName is: " << base->portName)
 		return;
 	}
 		
 	base->m_signal();
 
-//	DEBUG(1, [MHAL_PF_p::pushPacket], " leave...")
+	DEBUG(1, [MHAL_PF_p::pushPacket], " leave...")
 }
 
 

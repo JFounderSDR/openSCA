@@ -36,6 +36,14 @@
 #include "StandardEventC.h"
 #include "Boost_utils.h"
 
+void 
+printCORBASystemException(
+	const CORBA::SystemException & e);
+
+void
+printCORBAException(
+	const CORBA::Exception & e);
+
 /**
  * @brief  The operation shall open a file, and return the
  *         file object reference.
@@ -52,25 +60,6 @@
 bool
 openProfileFile(
     CF::FileSystem_ptr fs,
-    const char * profile,
-    CF::File_var & file);
-
-/**
- * @brief  The operation shall open a file, and return the
- *         file object reference.
- *
- * @note        shall close this CF::File object after use
- * @param[in]   fm          File Manager ojbect reference
- * @param[in]   profile     The file wait for opening
- * @param[in]   file        Reference of specialed file
- *
- * @return  Result of opening the file.
- * @retval  true    Open successfully.
- * @retval  false   Open failed.
- */
-bool
-openProfileFile(
-    CF::FileManager_ptr fm,
     const char * profile,
     CF::File_var & file);
 

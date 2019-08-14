@@ -34,7 +34,7 @@ StandardInterfaces_i::RealOctet_p::RealOctet_p(
 	data_servant_var = data_servant->_this();
 
 	m_buffCtrl = new CyclicBufferController();
-	m_buffCtrl->initializeDataBuf(80960);
+	m_buffCtrl->initializeDataBuf();
 
 	openscaSupport::ORB_Wrap orb;
 	std::string objName(_name);
@@ -108,10 +108,9 @@ RealOctet::providesPort::pushPacket(
 	char sendBuff[sendLen] = {};
 	memcpy(sendBuff, data.get_buffer(), sendLen);
 	bool ret = (base->m_buffCtrl)->writeData(sendBuff, sendLen);
-	if (!ret)
-	{
-		DEBUG(7, RealOctet, 
-			"providesPort::wirteData falied, portName is: " << base->portName)
+	if (!ret){
+		DEBUG(8, RealOctet, 
+			"providesPort::writeData falied, portName is: " << base->portName)
 		return;
 	}
 	base->m_signal();

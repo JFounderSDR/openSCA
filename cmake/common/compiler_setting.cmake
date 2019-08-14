@@ -9,15 +9,13 @@
 # version4.1, developed and copyrighted by JFounder Inc. 
 ################################################################################
 
-SET(CMAKE_C_COMPILER   "${COMPILER_DIR}/SDK/2015.4/gnu/arm/lin/bin/arm-xilinx-linux-gnueabi-gcc")
-SET(CMAKE_CXX_COMPILER "${COMPILER_DIR}/SDK/2015.4/gnu/arm/lin/bin/arm-xilinx-linux-gnueabi-g++")
-SET(CMAKE_AR "${COMPILER_DIR}/SDK/2015.4/gnu/arm/lin/bin/arm-xilinx-linux-gnueabi-ar")
+SET(CMAKE_C_COMPILER   "${COMPILER_DIR}/bin/arm-linux-gnueabihf-gcc")
+SET(CMAKE_CXX_COMPILER "${COMPILER_DIR}/bin/arm-linux-gnueabihf-g++")
+SET(CMAKE_AR "${COMPILER_DIR}/bin/arm-linux-gnueabihf-ar")
 
 # where is the target environment 
 SET(CMAKE_FIND_ROOT_PATH 
-	"${COMPILER_DIR}/SDK/2015.4/lib" 
-	"${COMPILER_DIR}/SDK/2015.4/gnu/arm/lin/arm-xilinx-linux-gnueabi/lib" 
-	"${COMPILER_DIR}/SDK/2015.4/gnu/arm/lin/arm-xilinx-linux-gnueabi/libc")
+	"${COMPILER_DIR}/lib")
 
 # search for programs in the build host directories (not necessary)
 SET(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)

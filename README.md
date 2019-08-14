@@ -3,17 +3,58 @@
 
 ## 编译环境
 1. 宿主机操作系统：建议Ubuntu 16.04及以上版本  宿主机硬件版本：ARMv7_CortexA9；<br>
-2. 交叉编译器：arm-xilinx-linux-gnueabi-gcc、arm-xilinx-linux-gnueabi-g++，<br>
-交叉编译器版本：4.9.2 (Sourcery CodeBench Lite 2015.05-17)；<br>
+2. 交叉编译器现支持两类：jLinux、PetaLinux2015.4.<br>
+jLinux：arm-linux-gnueabihf-gcc、arm-linux-gnueabihf-g++，<br>
+版本: 6.5.0 (Linaro GCC 6.5-2018.12)
+PetaLinux2015.4：arm-xilinx-linux-gnueabi-gcc、arm-xilinx-linux-gnueabi-g++，<br>
+版本：4.9.2 (Sourcery CodeBench Lite 2015.05-17)；<br>
 3. cmake，版本不低于3.5；<br>
 
 ## 编译设置
-本项目使用CMake工具进行编译，需要先配置交叉编译器的环境变量。
+本项目使用CMake工具进行编译，需要先配置交叉编译器的环境变量。<br>
 
-1. 安装Xilinx_SDK
-2. 在Xilinx-2015.4/SDK/2015.4/settings64.sh脚本中，添加如下内容：
+jLinux:<br>
+1. 安装Linaro_SDK<br>
+2. 新建gcc-linaro-6.5.0-2018.12-i686_arm-linux-gnueabihf/settings64.sh脚本，添加如下内容：<br>
 
-export CC=arm-xilinx-linux-gnueabi-gcc
+export PATH=$PATH:/home/jf-yt/gcc-linaro-6.5.0-2018.12-i686_arm-linux-gnueabihf/bin/<br>
+export CPLUS_INCLUDE_PATH=/home/jf-yt/gcc-linaro-6.5.0-2018.12-i686_arm-linux-gnueabihf/include/<br>
+export C_INCLUDE_PATH=/home/jf-yt/gcc-linaro-6.5.0-2018.12-i686_arm-linux-gnueabihf/include/<br>
+export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/home/jf-yt/gcc-linaro-6.5.0-2018.12-i686_arm-linux-gnueabihf/include/<br>
+export LD_LIBRARY_PATH=/home/jf-yt/gcc-linaro-6.5.0-2018.12-i686_arm-linux-gnueabihf/lib:$LD_LIBRARY_PATH<br>
+export LIBRARY_PATH=$LIBRARY_PATH:/home/jf-yt/gcc-linaro-6.5.0-2018.12-i686_arm-linux-gnueabihf/lib<br>
+
+export CXX=arm-linux-gnueabihf-g++<br>
+export CC=arm-linux-gnueabihf-gcc<br>
+
+/home/jf-yt为具体安装路径，请根据实际情况更改。<br>
+
+3. 编译前请先执行如下命令：
+
+```
+source ~/gcc-linaro-6.5.0-2018.12-i686_arm-linux-gnueabihf/settings64.sh
+```
+
+配置目录下的configure.cmake文件，配置选项如下：<br>
+
+![load picture failed](https://github.com/JFounderSDR/openSCA/blob/master/jLinux_compile_config.png)<br>
+
+4. 设置compiler_setting.cmake
+设置openSCA/cmake/common/compiler_setting.cmake文件
+> SET(CMAKE_C_COMPILER   "${COMPILER_DIR}/bin/arm-linux-gnueabihf-gcc")
+SET(CMAKE_CXX_COMPILER "${COMPILER_DIR}/bin/arm-linux-gnueabihf-g++")
+SET(CMAKE_AR "${COMPILER_DIR}/bin/arm-linux-gnueabihf-ar")
+# where is the target environment 
+SET(CMAKE_FIND_ROOT_PATH 
+	"${COMPILER_DIR}/lib")
+	
+![load picture failed](https://github.com/JFounderSDR/openSCA/blob/master/jLinux_compiler_setting.png)<br>	
+
+PetaLinux2015.4:<br>
+1. 安装Xilinx_SDK<br>
+2. 在Xilinx-2015.4/SDK/2015.4/settings64.sh脚本中，添加如下内容：<br>
+
+export CC=arm-xilinx-linux-gnueabi-gcc<br>
 export CXX=arm-xilinx-linux-gnueabi-g++
 
 3. 编译前请先执行如下命令：
@@ -24,7 +65,21 @@ source ~/Xilinx-2015.4/SDK/2015.4/settings64.sh
 
 配置目录下的configure.cmake文件，配置选项如下：<br>
 
-![load picture failed](https://github.com/JFounderSDR/openSCA/blob/master/compile_config.png)<br>
+![load picture failed](https://github.com/JFounderSDR/openSCA/blob/master/PetaLinux_compile_config.png)<br>
+
+4. 设置compiler_setting.cmake
+设置openSCA/cmake/common/compiler_setting.cmake文件
+> SET(CMAKE_C_COMPILER   "${COMPILER_DIR}/SDK/2015.4/gnu/arm/lin/bin/arm-xilinx-linux-gnueabi-gcc")
+SET(CMAKE_CXX_COMPILER "${COMPILER_DIR}/SDK/2015.4/gnu/arm/lin/bin/arm-xilinx-linux-gnueabi-g++")
+SET(CMAKE_AR "${COMPILER_DIR}/SDK/2015.4/gnu/arm/lin/bin/arm-xilinx-linux-gnueabi-ar")
+
+# where is the target environment 
+SET(CMAKE_FIND_ROOT_PATH 
+	"${COMPILER_DIR}/SDK/2015.4/lib" 
+	"${COMPILER_DIR}/SDK/2015.4/gnu/arm/lin/arm-xilinx-linux-gnueabi/lib" 
+	"${COMPILER_DIR}/SDK/2015.4/gnu/arm/lin/arm-xilinx-linux-gnueabi/libc")
+	
+![load picture failed](https://github.com/JFounderSDR/openSCA/blob/master/PetaLinux_compiler_setting.png)<br>	
 
 ## 编译步骤
 1. 编译本项目，首先从GitHub拉取sdrLibrary仓库，新建openSCA/libs目录，然后将sdrLibrary中ace_tao、boost、<br>

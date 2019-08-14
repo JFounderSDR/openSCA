@@ -40,6 +40,34 @@
 #include <cstring>
 #include <iostream>
 
+void 
+printCORBASystemException(
+	const CORBA::SystemException & e)
+{
+	DEBUG(0, [cf_utils::printCORBASystemException],
+		"CORBA::SystemException e.completed:" << e.completed())
+	DEBUG(0, [cf_utils::printCORBASystemException],
+		"CORBA::SystemException e.minor:" << e.minor())
+	DEBUG(0, [cf_utils::printCORBASystemException],
+		"CORBA::SystemException e._info:" << e._info())
+	DEBUG(0, [cf_utils::printCORBASystemException],
+		"CORBA::SystemException e._name:" << e._name())
+	DEBUG(0, [cf_utils::printCORBASystemException],
+		"CORBA::SystemException e._rep_id:" << e._rep_id())
+}
+
+void
+printCORBAException(
+	const CORBA::Exception & e)
+{
+	DEBUG(0, [cf_utils::printCORBAException],
+		"CORBA::Exception e.id:" << e._rep_id())
+	DEBUG(0, [cf_utils::printCORBAException],
+		"CORBA::Exception e.name:" << e._name())
+	DEBUG(0, [cf_utils::printCORBAException],
+		"CORBA::Exception e.info:" << e._info().c_str())
+}
+
 /**
  * @brief  The operation shall open a file, and return the
  *         file object reference.

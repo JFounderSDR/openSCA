@@ -1,14 +1,24 @@
-///////////////////////////////////////////////////////////
-//  Copyright(c)2015-2020 Company Name.
-//  All rights reserved.
-//
-//  File name: openscaSupport.h
-//  Description:
-//
-//  Version:
-//  Created on:      06-02-2016 14:21:55
-//  Author: Open Team
-///////////////////////////////////////////////////////////
+/***************************************************************************//**
+* @file     RealOctet_u.cpp
+* @author   open Team
+* @version  1
+* @date     2017-03-14
+* @brief
+* @Details
+* @Remark : <Description>
+* @verbatim
+* ==============================================================================
+* <Date>     | <Version> | <Author>       | <Description>
+* ==============================================================================
+*  2019-03-19 | 1       | open Team       | Create file
+* ==============================================================================
+* @endverbatim
+* ******************************************************************************
+* <h2><center>&copy; Copyright(c)2017-2022 JFounder Info Tech Co.,Ltd</center></h2>
+* All rights reserved. The right to copy, distribute, modify or otherwise make use
+* of this software may be licensed only pursuant to the terms
+* of an applicable JFounder license agreement.
+*//****************************************************************************/
 
 #include <iostream>
 
@@ -54,13 +64,10 @@ CORBA::Object_ptr StandardInterfaces_i::RealOctet_u::getPort(const char *_portNa
 	DEBUG(7, StandardInterfaces_i::RealOctet_u::getPort, "_port_name: " << _portName )
     DEBUG(7, StandardInterfaces_i::RealOctet_u::getPort, "port_name: " << portName )
 
-    if (strcmp(portName.c_str(), _portName) == 0)
-    {
+    if (strcmp(portName.c_str(), _portName) == 0) {
         DEBUG(7, StandardInterfaces_i::RealOctet_u::getPort, "find port: " << _portName )
         return CORBA::Object::_duplicate(data_servant_var);
-    }
-    else
-    {
+    } else {
         return CORBA::Object::_nil();
     }
 }
@@ -69,8 +76,6 @@ void
 StandardInterfaces_i::RealOctet_u::pushPacket(
 		const JTRS::OctetSequence &data)
 {
-	static int count = 0;
-	++count;
 	DEBUG(7,RealOctet_u,"pushPacket entering...")
 
 	for (unsigned int i = 0; i < dest_ports.size(); ++i) {
@@ -84,17 +89,10 @@ StandardInterfaces_i::RealOctet_u::pushPacket(
 				DEBUG(0, RealOctet_u, "dest_ports[i].port_obj is null...")
 			}
 		} catch (CORBA::SystemException & e) {
-			std::cout << "CORBA::SystemException type: " << e.completed() << std::endl;
-			std::cout << "CORBA::SystemException minor: " << e.minor() << std::endl;
-			std::cout << "CORBA::SystemException info: " << e._info() << std::endl;
-			std::cout << "CORBA::SystemException name: " << e._name() << std::endl;
-			std::cout << "CORBA::SystemException id: " << e._rep_id() << std::endl;
+			printCORBASystemException(e);
 		} catch (CORBA::Exception & e) {
-			std::cout << "CORBA::Exception info: " << e._info() << std::endl;
-			std::cout << "CORBA::Exception name: " << e._name() << std::endl;
-			std::cout << "CORBA::Exception id: " << e._rep_id() << std::endl;
-		}
-		catch (...) {
+			printCORBAException(e);
+		} catch (...) {
 			DEBUG(5, RealOctet_u, "P Port occur Unknow exception...")
 		    std::cout<<"P Port occur Unknow exception......"<<std::endl;		
 		}
