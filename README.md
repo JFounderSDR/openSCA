@@ -6,7 +6,7 @@
 2. 交叉编译器现支持两类：jLinux、PetaLinux2015.4。<br>
 获取编译器路径：https://github.com/JFounderSDR/jRootfs-and-Toolchains<br>
 jLinux：arm-linux-gnueabihf-gcc、arm-linux-gnueabihf-g++<br>
-版本: 6.5.0 (Linaro GCC 6.5-2018.12)<br>
+版本：6.5.0 (Linaro GCC 6.5-2018.12)<br>
 PetaLinux2015.4：arm-xilinx-linux-gnueabi-gcc、arm-xilinx-linux-gnueabi-g++<br>
 版本：4.9.2 (Sourcery CodeBench Lite 2015.05-17)<br>
 3. cmake，版本不低于3.5；<br>
