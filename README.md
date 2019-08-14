@@ -13,7 +13,7 @@ PetaLinux2015.4：arm-xilinx-linux-gnueabi-gcc、arm-xilinx-linux-gnueabi-g++，
 ## 编译设置
 本项目使用CMake工具进行编译，需要先配置交叉编译器的环境变量。<br>
 
-jLinux:<br>
+### jLinux:<br>
 1. 安装Linaro_SDK<br>
 2. 新建gcc-linaro-6.5.0-2018.12-i686_arm-linux-gnueabihf/settings64.sh脚本，添加如下内容：<br>
 
@@ -38,8 +38,7 @@ source ~/gcc-linaro-6.5.0-2018.12-i686_arm-linux-gnueabihf/settings64.sh
 
 ![load picture failed](https://github.com/JFounderSDR/openSCA/blob/master/jLinux_compile_config.png)<br>
 
-4. 设置compiler_setting.cmake<br>
-设置openSCA/cmake/common/compiler_setting.cmake文件<br>
+4. 设置openSCA/cmake/common/compiler_setting.cmake文件<br>
 > SET(CMAKE_C_COMPILER   "${COMPILER_DIR}/bin/arm-linux-gnueabihf-gcc")<br>
 SET(CMAKE_CXX_COMPILER "${COMPILER_DIR}/bin/arm-linux-gnueabihf-g++")<br>
 SET(CMAKE_AR "${COMPILER_DIR}/bin/arm-linux-gnueabihf-ar")<br>
@@ -50,11 +49,11 @@ SET(CMAKE_FIND_ROOT_PATH <br>
 	
 ![load picture failed](https://github.com/JFounderSDR/openSCA/blob/master/jLinux_compiler_setting.png)<br>	
 
-PetaLinux2015.4:<br>
+### PetaLinux2015.4:<br>
 1. 安装Xilinx_SDK<br>
 2. 在Xilinx-2015.4/SDK/2015.4/settings64.sh脚本中，添加如下内容：<br>
 
-export CC=arm-xilinx-linux-gnueabi-gcc<br>
+> export CC=arm-xilinx-linux-gnueabi-gcc<br>
 export CXX=arm-xilinx-linux-gnueabi-g++
 
 3. 编译前请先执行如下命令：
@@ -67,8 +66,7 @@ source ~/Xilinx-2015.4/SDK/2015.4/settings64.sh
 
 ![load picture failed](https://github.com/JFounderSDR/openSCA/blob/master/PetaLinux_compile_config.png)<br>
 
-4. 设置compiler_setting.cmake<br>
-设置openSCA/cmake/common/compiler_setting.cmake文件<br>
+4. 设置openSCA/cmake/common/compiler_setting.cmake文件<br>
 > SET(CMAKE_C_COMPILER   "${COMPILER_DIR}/SDK/2015.4/gnu/arm/lin/bin/arm-xilinx-linux-gnueabi-gcc")<br>
 SET(CMAKE_CXX_COMPILER "${COMPILER_DIR}/SDK/2015.4/gnu/arm/lin/bin/arm-xilinx-linux-gnueabi-g++")<br>
 SET(CMAKE_AR "${COMPILER_DIR}/SDK/2015.4/gnu/arm/lin/bin/arm-xilinx-linux-gnueabi-ar")<br>
