@@ -17,13 +17,12 @@ jLinux:<br>
 1. 安装Linaro_SDK<br>
 2. 新建gcc-linaro-6.5.0-2018.12-i686_arm-linux-gnueabihf/settings64.sh脚本，添加如下内容：<br>
 
-export PATH=$PATH:/home/jf-yt/gcc-linaro-6.5.0-2018.12-i686_arm-linux-gnueabihf/bin/<br>
+> export PATH=$PATH:/home/jf-yt/gcc-linaro-6.5.0-2018.12-i686_arm-linux-gnueabihf/bin/<br>
 export CPLUS_INCLUDE_PATH=/home/jf-yt/gcc-linaro-6.5.0-2018.12-i686_arm-linux-gnueabihf/include/<br>
 export C_INCLUDE_PATH=/home/jf-yt/gcc-linaro-6.5.0-2018.12-i686_arm-linux-gnueabihf/include/<br>
 export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/home/jf-yt/gcc-linaro-6.5.0-2018.12-i686_arm-linux-gnueabihf/include/<br>
 export LD_LIBRARY_PATH=/home/jf-yt/gcc-linaro-6.5.0-2018.12-i686_arm-linux-gnueabihf/lib:$LD_LIBRARY_PATH<br>
 export LIBRARY_PATH=$LIBRARY_PATH:/home/jf-yt/gcc-linaro-6.5.0-2018.12-i686_arm-linux-gnueabihf/lib<br>
-
 export CXX=arm-linux-gnueabihf-g++<br>
 export CC=arm-linux-gnueabihf-gcc<br>
 
